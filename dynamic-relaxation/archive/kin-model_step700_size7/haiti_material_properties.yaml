@@ -1,0 +1,20 @@
+!Switch
+[rho, mu, lambda]: !Any
+  components:
+    - !LayeredModel # taken from Douilly et al., 2013
+        map: !AffineMap
+          matrix:
+            depth: [0.0, 0.0, -1.0] # I think this means positive z is below the surface
+          translation:
+            depth: 0
+        interpolation: linear
+        parameters: [rho, mu, lambda]
+        nodes: # NOTE: need to correct densitites, currently set as constant, compare to Mathilde's function approach
+          -3000:	[2579.729836,	19651349999,	32616040263]
+          4000:	  [2593.337753,	21212465484,	32080625340]
+          6000:	  [2671.181411,	25670053360,	37899790332]
+          9000:	  [2833.051812,	36920614519,	45855210019]
+          20000:	[2970.929937,	51166840840,	43658112517]
+          25000:	[3057.803959,	55752633804,	51445105367]
+          150000:	[3057.803959,	55752633804,	51445105367] 
+

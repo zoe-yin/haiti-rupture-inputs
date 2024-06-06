@@ -1,0 +1,838 @@
+num_nodes: 16 ntasks: 16 cpus_per_task:
+Fri May 03 19:12:36, Info:  Using the parameter file parameters_haiti_kinematic.par 
+Fri May 03 19:12:36, Info:  Reading SeisSol parameter file... 
+Fri May 03 19:12:36, Info:  The field "rf_output_on" is no longer in use. You may safely remove it from your parameters file. 
+Fri May 03 19:12:36, Info:  In your parameter file, you have specified a non-positive interval for "checkpointinterval" . This mechanism is deprecated and may be removed in a future version of SeisSol. Consider disabling the whole module by setting "checkpoint" to 0 instead by adding "checkpoint = 0" to the "output" section of your parameter file instead. 
+Fri May 03 19:12:36, Info:  The field "printintervalcriterion" is no longer in use. You may safely remove it from your parameters file. 
+Fri May 03 19:12:36, Info:  Disabling the wavefield output by setting "outputformat = 10" is deprecated and may be removed in a future version of SeisSol. Consider using the parameter "wavefieldoutput" instead. To disable wavefield output, add "wavefieldoutput = 0" to the "output" section of your parameters file. 
+Fri May 03 19:12:36, Info:  The field "printintervalcriterion" is no longer in use. You may safely remove it from your parameters file. 
+Fri May 03 19:12:36, Info:  The field "pickdttype" is no longer in use. You may safely remove it from your parameters file. 
+Fri May 03 19:12:36, Info:  The field "faultoutputflag" is no longer in use. You may safely remove it from your parameters file. 
+Fri May 03 19:12:36, Info:  The field "boundaries" is no longer in use. You may safely remove it from your parameters file. 
+Fri May 03 19:12:36, Info:  SeisSol parameter file read successfully. 
+Fri May 03 19:12:36, Info:  Model information: 
+Fri May 03 19:12:36, Info:  Elastic model: yes 
+Fri May 03 19:12:36, Info:  Viscoelastic model: no 
+Fri May 03 19:12:36, Info:  Anelastic model: no 
+Fri May 03 19:12:36, Info:  Poroelastic model: no 
+Fri May 03 19:12:36, Info:  Anisotropic model: no 
+Fri May 03 19:12:36, Info:  Plasticity: no 
+Fri May 03 19:12:36, Info:  Welcome to SeisSol 
+Fri May 03 19:12:36, Info:  Copyright (c) 2012 - 2024  SeisSol Group 
+Fri May 03 19:12:36, Info:  Version: v1.1.3-268-gcb972500 
+Fri May 03 19:12:36, Info:  Built on: May  2 2024 00:53:22 
+Fri May 03 19:12:36, Info:  Last commit: cb9725002e29ee55d54f8b57cf2181d2e26c4745 at 2024-04-30T18:04:04+00:00 
+Fri May 03 19:12:36, Info:  Compiled with HOST_ARCH = skx 
+Fri May 03 19:12:36, Info:  Running on (rank=0): "i01r01c01s01" 
+Fri May 03 19:12:36, Info:  Using MPI with #ranks: 16 
+Fri May 03 19:12:36, Info:  Node-wide (shared memory) MPI with #ranks/node: 1 
+Fri May 03 19:12:36, Info:  Using asynchronous MPI routines. 
+Fri May 03 19:12:36, Info:  Using OMP with #threads/rank: 94 
+Fri May 03 19:12:36, Info:  OpenMP worker affinity (this process): "0123456789|0123456789|0123456789|0123456789|0123456-89|0123456789|0123456789|0123456789|0123456789|01234-" 
+Fri May 03 19:12:36, Info:  OpenMP worker affinity (this node)   : "0123456789|0123456789|0123456789|0123456789|0123456-89|0123456789|0123456789|0123456789|0123456789|01234-" 
+Fri May 03 19:12:36, Info:  Using a communication thread for advancing MPI communication. 
+Fri May 03 19:12:36, Info:  Communication thread affinity        : "----------|----------|----------|----------|-------7--|----------|----------|----------|----------|-----5" 
+Fri May 03 19:12:36, Info:  The stack size ulimit is 2097152 [kiB] ( = 2.0000 GiB ). 
+Fri May 03 19:12:36, Info:  Begin init mesh. 
+Fri May 03 19:12:36, Info:  Mesh file: "mesh/Haiti_v05_lowres" 
+Fri May 03 19:12:36, Info:  Running mini SeisSol to determine node weights. 
+Fri May 03 19:12:36, Info:  miniSeisSol configured with 50000 elements and 10 repeats per process 
+Fri May 03 19:12:36, Info:  Node weights: mean = 41.4975  std = 0.307088  min = 40.9834  median = 41.534  max = 41.9291 
+Fri May 03 19:12:36, Info:  Reading PUML mesh 
+Fri May 03 19:12:36, Info:  Inferring boundary format. 
+Fri May 03 19:12:36, Info:  Boundary format not given in PUML file; inferring from array shape. 
+Fri May 03 19:12:36, Info:  Using boundary format: i32 (4xi8) 
+Fri May 03 19:12:36, Info:  Found 2740523 cells 
+Fri May 03 19:12:36, Info:  Found 486340 vertices 
+Fri May 03 19:12:38, Info:  Computing LTS weights. 
+Fri May 03 19:12:41, Info:  Limiting number of clusters to 2147483646 
+Fri May 03 19:12:41, Info:  Computing LTS weights. Done.  (113725 reductions.)
+Fri May 03 19:12:41, Info:  Using the Parmetis partition library and strategy. 
+Fri May 03 19:12:45, Info:  PUML mesh read in: 8.5165 s (min: 8.4577 s, max: 8.6093 s)
+Fri May 03 19:12:45, Info:  The mesh has been read. Starting post processing. 
+Fri May 03 19:12:45, Info:  Extracting fault information. 
+Fri May 03 19:12:45, Info:  Exchanging ghostlayer metadata. 
+Fri May 03 19:12:46, Info:  Mesh initialized in: 10.1923 s (min: 10.1920 s, max: 10.1931 s)
+Fri May 03 19:12:46, Info:  End init mesh. 
+Fri May 03 19:12:46, Info:  Begin init model. 
+Fri May 03 19:12:46, Info:  Initialize LTS. 
+Fri May 03 19:12:46, Info:  Deriving clusters ids for min. time step width / multiRate: 0.000160691 / 2 
+Fri May 03 19:12:46, Info:  Due to wiggle factor of 1 the minimum timestep size is reduced to 0.000160691 
+Fri May 03 19:12:46, Info:  Number of elements in time clusters: 
+Fri May 03 19:12:46, Info:  0: 206 
+Fri May 03 19:12:46, Info:  1: 46408 
+Fri May 03 19:12:46, Info:  2: 1359891 
+Fri May 03 19:12:46, Info:  3: 972785 
+Fri May 03 19:12:46, Info:  4: 240660 
+Fri May 03 19:12:46, Info:  5: 57262 
+Fri May 03 19:12:46, Info:  6: 14346 
+Fri May 03 19:12:46, Info:  7: 6539 
+Fri May 03 19:12:46, Info:  8: 36729 
+Fri May 03 19:12:46, Info:  9: 5697 
+Fri May 03 19:12:46, Info:  maximum theoretical speedup (compared to GTS): 8.29988 per cell LTS, 5.45659 with the used clustering. 
+Fri May 03 19:12:46, Info:  Number of elements in dynamic rupture time clusters: 
+Fri May 03 19:12:46, Info:  0 (dr): 73 
+Fri May 03 19:12:46, Info:  1 (dr): 14047 
+Fri May 03 19:12:46, Info:  2 (dr): 324854 
+Fri May 03 19:12:46, Info:  3 (dr): 46469 
+Fri May 03 19:12:46, Info:  4 (dr): 0 
+Fri May 03 19:12:46, Info:  5 (dr): 0 
+Fri May 03 19:12:46, Info:  6 (dr): 0 
+Fri May 03 19:12:46, Info:  7 (dr): 0 
+Fri May 03 19:12:46, Info:  8 (dr): 0 
+Fri May 03 19:12:46, Info:  9 (dr): 0 
+Fri May 03 19:12:46, Info:  Initialize Friction Model 
+Fri May 03 19:12:47, Info:  Initialize cell material parameters. 
+Fri May 03 19:12:48, Info:  Initialize Memory layout. 
+Fri May 03 19:12:48, Info:  Initialize cell-local matrices. 
+Fri May 03 19:12:48, Info:  Initializing Fault, using a quadrature rule with  25  points. 
+Fri May 03 19:12:51, Info:  Model initialized in: 5.4210 s (min: 5.4190 s, max: 5.4230 s)
+Fri May 03 19:12:51, Info:  End init model. 
+Fri May 03 19:12:51, Info:  Setting initial conditions. 
+Fri May 03 19:12:51, Info:  Using initial condition "Zero" . 
+Fri May 03 19:12:51, Info:  Reading source. 
+Fri May 03 19:12:51, Info:  No source term specified. 
+Fri May 03 19:12:51, Info:  Setting up boundary conditions. 
+Fri May 03 19:12:51, Info:  Begin init output. 
+Fri May 03 19:12:51, Info:  Initializing free surface integrator. 
+Fri May 03 19:12:51, Info:  Initializing free surface integrator. Done. 
+Fri May 03 19:12:51, Info:  Enabling 2D fault output 
+Fri May 03 19:12:51, Info:  Initializing Fault output. Number of sub-triangles: 4 
+Fri May 03 19:12:52, Info:  Initializing XDMF fault output. 
+Fri May 03 19:12:52, Info:  Fault writer thread affinity: "----------|----------|----------|----------|-------7--|----------|----------|----------|----------|-----5" 
+Fri May 03 19:12:52, Info:  Initializing XDMF fault output. Done. 
+Fri May 03 19:12:52, Info:  Initializing free surface output. 
+Fri May 03 19:12:52, Info:  Free surface writer thread affinity: "----------|----------|----------|----------|-------7--|----------|----------|----------|----------|-----5" 
+Fri May 03 19:12:52, Info:  No record points read. 
+Fri May 03 19:12:52, Info:  Finding meshIds for receivers... 
+Fri May 03 19:12:52, Info:  Cleaning possible double occurring receivers for MPI... 
+Fri May 03 19:12:52, Info:  Mapping receivers to LTS cells... 
+Fri May 03 19:12:52, Info:  Initializing energy output. 
+Fri May 03 19:12:52, Info:  End init output. 
+Fri May 03 19:12:52, Info:  Initializing free surface output. Done. 
+Fri May 03 19:12:52, Info:  Finishing initialization... 
+Fri May 03 19:12:52, Info:  Starting simulation. 
+Fri May 03 19:12:52, Info:  Writing faultoutput at time 0.
+Fri May 03 19:12:52, Info:  Writing faultoutput at time 0. Done.
+Fri May 03 19:12:52, Info:  Writing free surface at time 0.
+Fri May 03 19:12:52, Info:  Writing free surface at time 0. Done.
+Fri May 03 19:12:52, Info:  Writing energy output at time 0 
+Fri May 03 19:12:52, Info:  Total momentum (X, Y, Z): 0  , 0  , 0 
+Fri May 03 19:12:52, Info:  Writing energy output at time 0 Done. 
+Fri May 03 19:12:52, Info:  Time spent for initial IO: 52.1541 ms (min: 43.0240 ms, max: 72.8860 ms)
+Fri May 03 19:13:23, Info:  Writing energy output at time 0.5 
+Fri May 03 19:13:23, Info:  Elastic energy (total, % kinematic, % potential):  3.06892e+16  , 44.7503  , 55.2497 
+Fri May 03 19:13:23, Info:  Total momentum (X, Y, Z): 1.18261  , -5.21444  , -4.38179 
+Fri May 03 19:13:23, Info:  Frictional work (total, % static, % radiated):  3.20017e+16  , 23.8123  , 76.1877 
+Fri May 03 19:13:23, Info:  Seismic moment (without plasticity): 8.76042e+19  Mw: 7.22502 
+Fri May 03 19:13:23, Info:  Writing energy output at time 0.5 Done. 
+Fri May 03 19:13:23, Info:  Time spent this phase (total): 30.8496 s (min: 30.8268 s, max: 30.8691 s)
+Fri May 03 19:13:23, Info:  Time spent this phase (compute): 30.7975 s (min: 30.7669 s, max: 30.8178 s)
+Fri May 03 19:13:23, Info:  Time spent this phase (IO): 50.9648 ms (min: 38.7872 ms, max: 98.0325 ms)
+Fri May 03 19:13:23, Info:  Performance since the start: 8.7928 TFLOP/s (rank 0: 562.0003 GFLOP/s , average over ranks: 549.5496 GFLOP/s ) 
+Fri May 03 19:13:23, Info:  Performance since last sync point: 8.7928 TFLOP/s (rank 0: 562.0003 GFLOP/s , average over ranks: 549.5496 GFLOP/s ) 
+Fri May 03 19:13:54, Info:  Writing energy output at time 1 
+Fri May 03 19:13:54, Info:  Elastic energy (total, % kinematic, % potential):  3.07317e+16  , 40.8497  , 59.1503 
+Fri May 03 19:13:54, Info:  Total momentum (X, Y, Z): 146.122  , -54.9451  , 10.8862 
+Fri May 03 19:13:54, Info:  Frictional work (total, % static, % radiated):  3.49273e+16  , 14.0396  , 85.9604 
+Fri May 03 19:13:54, Info:  Seismic moment (without plasticity): 1.07217e+20  Mw: 7.28351 
+Fri May 03 19:13:54, Info:  Writing energy output at time 1 Done. 
+Fri May 03 19:13:54, Info:  Time spent this phase (total): 31.2751 s (min: 31.2616 s, max: 31.2875 s)
+Fri May 03 19:13:54, Info:  Time spent this phase (compute): 31.2750 s (min: 31.2616 s, max: 31.2874 s)
+Fri May 03 19:13:54, Info:  Time spent this phase (IO): 52.8764 ms (min: 38.7691 ms, max: 121.5280 ms)
+Fri May 03 19:13:54, Info:  Performance since the start: 8.7326 TFLOP/s (rank 0: 558.2170 GFLOP/s , average over ranks: 545.7855 GFLOP/s ) 
+Fri May 03 19:13:54, Info:  Performance since last sync point: 8.6732 TFLOP/s (rank 0: 554.4843 GFLOP/s , average over ranks: 542.0726 GFLOP/s ) 
+Fri May 03 19:14:23, Info:  Writing energy output at time 1.5 
+Fri May 03 19:14:23, Info:  Elastic energy (total, % kinematic, % potential):  2.85543e+16  , 39.2755  , 60.7245 
+Fri May 03 19:14:23, Info:  Total momentum (X, Y, Z): 138.508  , 60.8672  , 72.5576 
+Fri May 03 19:14:23, Info:  Frictional work (total, % static, % radiated):  3.49296e+16  , 15.5837  , 84.4163 
+Fri May 03 19:14:23, Info:  Seismic moment (without plasticity): 1.07282e+20  Mw: 7.28369 
+Fri May 03 19:14:23, Info:  Writing energy output at time 1.5 Done. 
+Fri May 03 19:14:23, Info:  Time spent this phase (total): 29.0060 s (min: 28.9961 s, max: 29.0429 s)
+Fri May 03 19:14:23, Info:  Time spent this phase (compute): 29.0059 s (min: 28.9957 s, max: 29.0429 s)
+Fri May 03 19:14:23, Info:  Time spent this phase (IO): 48.1604 ms (min: 38.8482 ms, max: 84.7489 ms)
+Fri May 03 19:14:23, Info:  Performance since the start: 8.9296 TFLOP/s (rank 0: 570.9684 GFLOP/s , average over ranks: 558.1012 GFLOP/s ) 
+Fri May 03 19:14:23, Info:  Performance since last sync point: 9.3517 TFLOP/s (rank 0: 598.3026 GFLOP/s , average over ranks: 584.4790 GFLOP/s ) 
+Fri May 03 19:14:52, Info:  Writing faultoutput at time 2.
+Fri May 03 19:14:52, Info:  Writing faultoutput at time 2. Done.
+Fri May 03 19:14:52, Info:  Writing energy output at time 2 
+Fri May 03 19:14:52, Info:  Elastic energy (total, % kinematic, % potential):  2.65171e+16  , 37.9541  , 62.0459 
+Fri May 03 19:14:52, Info:  Total momentum (X, Y, Z): 548.32  , 192.531  , 207.305 
+Fri May 03 19:14:52, Info:  Frictional work (total, % static, % radiated):  3.49298e+16  , 16.0585  , 83.9415 
+Fri May 03 19:14:52, Info:  Seismic moment (without plasticity): 1.07311e+20  Mw: 7.28376 
+Fri May 03 19:14:52, Info:  Writing energy output at time 2 Done. 
+Fri May 03 19:14:52, Info:  Time spent this phase (total): 28.8737 s (min: 28.8425 s, max: 28.8835 s)
+Fri May 03 19:14:52, Info:  Time spent this phase (compute): 28.8736 s (min: 28.8425 s, max: 28.8835 s)
+Fri May 03 19:14:52, Info:  Time spent this phase (IO): 53.7246 ms (min: 41.4967 ms, max: 105.9722 ms)
+Fri May 03 19:14:52, Info:  Performance since the start: 9.0415 TFLOP/s (rank 0: 578.1516 GFLOP/s , average over ranks: 565.0924 GFLOP/s ) 
+Fri May 03 19:14:52, Info:  Performance since last sync point: 9.3945 TFLOP/s (rank 0: 600.8282 GFLOP/s , average over ranks: 587.1583 GFLOP/s ) 
+Fri May 03 19:15:21, Info:  Writing energy output at time 2.5 
+Fri May 03 19:15:21, Info:  Elastic energy (total, % kinematic, % potential):  2.48533e+16  , 36.9828  , 63.0172 
+Fri May 03 19:15:21, Info:  Total momentum (X, Y, Z): 528.625  , -272  , -1573.41 
+Fri May 03 19:15:21, Info:  Frictional work (total, % static, % radiated):  3.49301e+16  , 16.921  , 83.079 
+Fri May 03 19:15:21, Info:  Seismic moment (without plasticity): 1.07327e+20  Mw: 7.28381 
+Fri May 03 19:15:21, Info:  Writing energy output at time 2.5 Done. 
+Fri May 03 19:15:21, Info:  Time spent this phase (total): 28.9087 s (min: 28.8788 s, max: 28.9594 s)
+Fri May 03 19:15:21, Info:  Time spent this phase (compute): 28.9086 s (min: 28.8788 s, max: 28.9594 s)
+Fri May 03 19:15:21, Info:  Time spent this phase (IO): 45.8941 ms (min: 38.7745 ms, max: 64.5947 ms)
+Fri May 03 19:15:21, Info:  Performance since the start: 9.1078 TFLOP/s (rank 0: 582.3620 GFLOP/s , average over ranks: 569.2375 GFLOP/s ) 
+Fri May 03 19:15:21, Info:  Performance since last sync point: 9.3831 TFLOP/s (rank 0: 599.8353 GFLOP/s , average over ranks: 586.4449 GFLOP/s ) 
+Fri May 03 19:15:50, Info:  Writing energy output at time 3 
+Fri May 03 19:15:50, Info:  Elastic energy (total, % kinematic, % potential):  2.34992e+16  , 35.992  , 64.008 
+Fri May 03 19:15:50, Info:  Total momentum (X, Y, Z): 1230.12  , -1849.5  , -15798.1 
+Fri May 03 19:15:50, Info:  Frictional work (total, % static, % radiated):  3.49303e+16  , 17.3054  , 82.6946 
+Fri May 03 19:15:50, Info:  Seismic moment (without plasticity): 1.07338e+20  Mw: 7.28384 
+Fri May 03 19:15:50, Info:  Writing energy output at time 3 Done. 
+Fri May 03 19:15:50, Info:  Time spent this phase (total): 28.9713 s (min: 28.9179 s, max: 28.9999 s)
+Fri May 03 19:15:50, Info:  Time spent this phase (compute): 28.9713 s (min: 28.9178 s, max: 28.9999 s)
+Fri May 03 19:15:50, Info:  Time spent this phase (IO): 52.3750 ms (min: 38.8044 ms, max: 114.9900 ms)
+Fri May 03 19:15:50, Info:  Performance since the start: 9.1493 TFLOP/s (rank 0: 585.0605 GFLOP/s , average over ranks: 571.8340 GFLOP/s ) 
+Fri May 03 19:15:50, Info:  Performance since last sync point: 9.3629 TFLOP/s (rank 0: 598.9369 GFLOP/s , average over ranks: 585.1806 GFLOP/s ) 
+Fri May 03 19:16:19, Info:  Writing energy output at time 3.5 
+Fri May 03 19:16:19, Info:  Elastic energy (total, % kinematic, % potential):  2.24441e+16  , 35.1489  , 64.8511 
+Fri May 03 19:16:19, Info:  Total momentum (X, Y, Z): -10895.4  , 21152.1  , 75063.6 
+Fri May 03 19:16:19, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 17.9017  , 82.0983 
+Fri May 03 19:16:19, Info:  Seismic moment (without plasticity): 1.07346e+20  Mw: 7.28386 
+Fri May 03 19:16:19, Info:  Writing energy output at time 3.5 Done. 
+Fri May 03 19:16:19, Info:  Time spent this phase (total): 29.0431 s (min: 29.0404 s, max: 29.0448 s)
+Fri May 03 19:16:19, Info:  Time spent this phase (compute): 29.0430 s (min: 29.0404 s, max: 29.0448 s)
+Fri May 03 19:16:19, Info:  Time spent this phase (IO): 51.3058 ms (min: 38.7634 ms, max: 108.3532 ms)
+Fri May 03 19:16:19, Info:  Performance since the start: 9.1761 TFLOP/s (rank 0: 586.7832 GFLOP/s , average over ranks: 573.5041 GFLOP/s ) 
+Fri May 03 19:16:19, Info:  Performance since last sync point: 9.3397 TFLOP/s (rank 0: 597.3365 GFLOP/s , average over ranks: 583.7331 GFLOP/s ) 
+Fri May 03 19:16:48, Info:  Writing faultoutput at time 4.
+Fri May 03 19:16:48, Info:  Writing faultoutput at time 4. Done.
+Fri May 03 19:16:48, Info:  Writing energy output at time 4 
+Fri May 03 19:16:48, Info:  Elastic energy (total, % kinematic, % potential):  2.14901e+16  , 34.2851  , 65.7149 
+Fri May 03 19:16:48, Info:  Total momentum (X, Y, Z): 183250  , -78958.6  , 701091 
+Fri May 03 19:16:48, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 17.859  , 82.141 
+Fri May 03 19:16:48, Info:  Seismic moment (without plasticity): 1.07352e+20  Mw: 7.28387 
+Fri May 03 19:16:48, Info:  Writing energy output at time 4 Done. 
+Fri May 03 19:16:48, Info:  Time spent this phase (total): 29.1015 s (min: 29.0972 s, max: 29.1094 s)
+Fri May 03 19:16:48, Info:  Time spent this phase (compute): 29.1014 s (min: 29.0971 s, max: 29.1094 s)
+Fri May 03 19:16:48, Info:  Time spent this phase (IO): 53.2512 ms (min: 41.5430 ms, max: 100.2916 ms)
+Fri May 03 19:16:48, Info:  Performance since the start: 9.1939 TFLOP/s (rank 0: 587.9438 GFLOP/s , average over ranks: 574.6208 GFLOP/s ) 
+Fri May 03 19:16:48, Info:  Performance since last sync point: 9.3210 TFLOP/s (rank 0: 596.1982 GFLOP/s , average over ranks: 582.5612 GFLOP/s ) 
+Fri May 03 19:17:17, Info:  Writing energy output at time 4.5 
+Fri May 03 19:17:17, Info:  Elastic energy (total, % kinematic, % potential):  2.07194e+16  , 33.3988  , 66.6012 
+Fri May 03 19:17:17, Info:  Total momentum (X, Y, Z): -1.34002e+06  , 10706.5  , -4.07058e+06 
+Fri May 03 19:17:17, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 18.1251  , 81.8749 
+Fri May 03 19:17:17, Info:  Seismic moment (without plasticity): 1.07357e+20  Mw: 7.28389 
+Fri May 03 19:17:17, Info:  Writing energy output at time 4.5 Done. 
+Fri May 03 19:17:17, Info:  Time spent this phase (total): 29.0810 s (min: 29.0727 s, max: 29.0861 s)
+Fri May 03 19:17:17, Info:  Time spent this phase (compute): 29.0809 s (min: 29.0726 s, max: 29.0860 s)
+Fri May 03 19:17:17, Info:  Time spent this phase (IO): 52.3312 ms (min: 38.8133 ms, max: 114.9131 ms)
+Fri May 03 19:17:17, Info:  Performance since the start: 9.2086 TFLOP/s (rank 0: 588.8813 GFLOP/s , average over ranks: 575.5369 GFLOP/s ) 
+Fri May 03 19:17:17, Info:  Performance since last sync point: 9.3276 TFLOP/s (rank 0: 596.4906 GFLOP/s , average over ranks: 582.9720 GFLOP/s ) 
+Fri May 03 19:17:46, Info:  Writing free surface at time 5.
+Fri May 03 19:17:46, Info:  Writing free surface at time 5. Done.
+Fri May 03 19:17:46, Info:  Writing energy output at time 5 
+Fri May 03 19:17:46, Info:  Elastic energy (total, % kinematic, % potential):  2.00638e+16  , 32.5821  , 67.4179 
+Fri May 03 19:17:46, Info:  Total momentum (X, Y, Z): 4.70559e+06  , 1.18e+06  , 1.48115e+07 
+Fri May 03 19:17:46, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 18.1497  , 81.8503 
+Fri May 03 19:17:46, Info:  Seismic moment (without plasticity): 1.07361e+20  Mw: 7.2839 
+Fri May 03 19:17:46, Info:  Writing energy output at time 5 Done. 
+Fri May 03 19:17:46, Info:  Time spent this phase (total): 28.9925 s (min: 28.9814 s, max: 29.0233 s)
+Fri May 03 19:17:46, Info:  Time spent this phase (compute): 28.9925 s (min: 28.9814 s, max: 29.0233 s)
+Fri May 03 19:17:46, Info:  Time spent this phase (IO): 58.2076 ms (min: 38.9412 ms, max: 131.5385 ms)
+Fri May 03 19:17:46, Info:  Performance since the start: 9.2231 TFLOP/s (rank 0: 589.7900 GFLOP/s , average over ranks: 576.4451 GFLOP/s ) 
+Fri May 03 19:17:46, Info:  Performance since last sync point: 9.3560 TFLOP/s (rank 0: 598.0956 GFLOP/s , average over ranks: 584.7498 GFLOP/s ) 
+Fri May 03 19:18:15, Info:  Writing energy output at time 5.5 
+Fri May 03 19:18:15, Info:  Elastic energy (total, % kinematic, % potential):  1.95059e+16  , 31.9777  , 68.0223 
+Fri May 03 19:18:15, Info:  Total momentum (X, Y, Z): -4.91903e+06  , -5.37946e+06  , -5.3706e+07 
+Fri May 03 19:18:15, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 18.3448  , 81.6552 
+Fri May 03 19:18:15, Info:  Seismic moment (without plasticity): 1.07364e+20  Mw: 7.28391 
+Fri May 03 19:18:15, Info:  Writing energy output at time 5.5 Done. 
+Fri May 03 19:18:15, Info:  Time spent this phase (total): 29.0518 s (min: 29.0209 s, max: 29.0628 s)
+Fri May 03 19:18:15, Info:  Time spent this phase (compute): 29.0518 s (min: 29.0208 s, max: 29.0627 s)
+Fri May 03 19:18:15, Info:  Time spent this phase (IO): 52.4031 ms (min: 38.8610 ms, max: 115.0632 ms)
+Fri May 03 19:18:15, Info:  Performance since the start: 9.2334 TFLOP/s (rank 0: 590.4770 GFLOP/s , average over ranks: 577.0845 GFLOP/s ) 
+Fri May 03 19:18:15, Info:  Performance since last sync point: 9.3369 TFLOP/s (rank 0: 597.4359 GFLOP/s , average over ranks: 583.5578 GFLOP/s ) 
+Fri May 03 19:18:44, Info:  Writing faultoutput at time 6.
+Fri May 03 19:18:44, Info:  Writing faultoutput at time 6. Done.
+Fri May 03 19:18:44, Info:  Writing energy output at time 6 
+Fri May 03 19:18:44, Info:  Elastic energy (total, % kinematic, % potential):  1.90125e+16  , 31.2013  , 68.7987 
+Fri May 03 19:18:44, Info:  Total momentum (X, Y, Z): -2.63332e+07  , 1.09575e+07  , 1.63859e+08 
+Fri May 03 19:18:44, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 18.5233  , 81.4767 
+Fri May 03 19:18:44, Info:  Seismic moment (without plasticity): 1.07367e+20  Mw: 7.28391 
+Fri May 03 19:18:44, Info:  Writing energy output at time 6 Done. 
+Fri May 03 19:18:44, Info:  Time spent this phase (total): 29.0230 s (min: 28.9877 s, max: 29.0693 s)
+Fri May 03 19:18:44, Info:  Time spent this phase (compute): 29.0229 s (min: 28.9876 s, max: 29.0693 s)
+Fri May 03 19:18:44, Info:  Time spent this phase (IO): 49.3905 ms (min: 42.7747 ms, max: 64.0559 ms)
+Fri May 03 19:18:44, Info:  Performance since the start: 9.2426 TFLOP/s (rank 0: 591.0774 GFLOP/s , average over ranks: 577.6655 GFLOP/s ) 
+Fri May 03 19:18:44, Info:  Performance since last sync point: 9.3462 TFLOP/s (rank 0: 597.7640 GFLOP/s , average over ranks: 584.1358 GFLOP/s ) 
+Fri May 03 19:19:13, Info:  Writing energy output at time 6.5 
+Fri May 03 19:19:13, Info:  Elastic energy (total, % kinematic, % potential):  1.85186e+16  , 30.7094  , 69.2906 
+Fri May 03 19:19:13, Info:  Total momentum (X, Y, Z): 1.21286e+08  , -3.55785e+06  , -3.27981e+08 
+Fri May 03 19:19:13, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 18.5101  , 81.4899 
+Fri May 03 19:19:13, Info:  Seismic moment (without plasticity): 1.07369e+20  Mw: 7.28392 
+Fri May 03 19:19:13, Info:  Writing energy output at time 6.5 Done. 
+Fri May 03 19:19:13, Info:  Time spent this phase (total): 28.9694 s (min: 28.9266 s, max: 29.0036 s)
+Fri May 03 19:19:13, Info:  Time spent this phase (compute): 28.9693 s (min: 28.9266 s, max: 29.0035 s)
+Fri May 03 19:19:13, Info:  Time spent this phase (IO): 50.8033 ms (min: 38.8205 ms, max: 91.0731 ms)
+Fri May 03 19:19:13, Info:  Performance since the start: 9.2518 TFLOP/s (rank 0: 591.6678 GFLOP/s , average over ranks: 578.2396 GFLOP/s ) 
+Fri May 03 19:19:13, Info:  Performance since last sync point: 9.3635 TFLOP/s (rank 0: 598.8450 GFLOP/s , average over ranks: 585.2186 GFLOP/s ) 
+Fri May 03 19:19:42, Info:  Writing energy output at time 7 
+Fri May 03 19:19:42, Info:  Elastic energy (total, % kinematic, % potential):  1.80863e+16  , 30.2427  , 69.7573 
+Fri May 03 19:19:42, Info:  Total momentum (X, Y, Z): -1.72081e+08  , -2.36276e+07  , 3.49919e+08 
+Fri May 03 19:19:42, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 18.8666  , 81.1334 
+Fri May 03 19:19:42, Info:  Seismic moment (without plasticity): 1.07371e+20  Mw: 7.28393 
+Fri May 03 19:19:42, Info:  Writing energy output at time 7 Done. 
+Fri May 03 19:19:42, Info:  Time spent this phase (total): 28.9385 s (min: 28.9295 s, max: 28.9439 s)
+Fri May 03 19:19:42, Info:  Time spent this phase (compute): 28.9384 s (min: 28.9294 s, max: 28.9438 s)
+Fri May 03 19:19:42, Info:  Time spent this phase (IO): 53.8422 ms (min: 38.7930 ms, max: 124.9967 ms)
+Fri May 03 19:19:42, Info:  Performance since the start: 9.2604 TFLOP/s (rank 0: 592.2131 GFLOP/s , average over ranks: 578.7761 GFLOP/s ) 
+Fri May 03 19:19:42, Info:  Performance since last sync point: 9.3735 TFLOP/s (rank 0: 599.3955 GFLOP/s , average over ranks: 585.8428 GFLOP/s ) 
+Fri May 03 19:20:11, Info:  Writing energy output at time 7.5 
+Fri May 03 19:20:11, Info:  Elastic energy (total, % kinematic, % potential):  1.76641e+16  , 29.8485  , 70.1515 
+Fri May 03 19:20:11, Info:  Total momentum (X, Y, Z): -1.64109e+08  , 2.11371e+07  , -1.86241e+08 
+Fri May 03 19:20:11, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 19.0188  , 80.9812 
+Fri May 03 19:20:11, Info:  Seismic moment (without plasticity): 1.07373e+20  Mw: 7.28393 
+Fri May 03 19:20:11, Info:  Writing energy output at time 7.5 Done. 
+Fri May 03 19:20:11, Info:  Time spent this phase (total): 28.9688 s (min: 28.9630 s, max: 28.9787 s)
+Fri May 03 19:20:11, Info:  Time spent this phase (compute): 28.9685 s (min: 28.9593 s, max: 28.9787 s)
+Fri May 03 19:20:11, Info:  Time spent this phase (IO): 51.8069 ms (min: 38.8322 ms, max: 111.1468 ms)
+Fri May 03 19:20:11, Info:  Performance since the start: 9.2672 TFLOP/s (rank 0: 592.6594 GFLOP/s , average over ranks: 579.2019 GFLOP/s ) 
+Fri May 03 19:20:11, Info:  Performance since last sync point: 9.3637 TFLOP/s (rank 0: 598.9788 GFLOP/s , average over ranks: 585.2290 GFLOP/s ) 
+Fri May 03 19:20:40, Info:  Writing faultoutput at time 8.
+Fri May 03 19:20:40, Info:  Writing faultoutput at time 8. Done.
+Fri May 03 19:20:40, Info:  Writing energy output at time 8 
+Fri May 03 19:20:40, Info:  Elastic energy (total, % kinematic, % potential):  1.72873e+16  , 29.3696  , 70.6304 
+Fri May 03 19:20:40, Info:  Total momentum (X, Y, Z): 8.50662e+08  , -1.93543e+07  , 3.01261e+08 
+Fri May 03 19:20:40, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 18.8096  , 81.1904 
+Fri May 03 19:20:40, Info:  Seismic moment (without plasticity): 1.07375e+20  Mw: 7.28393 
+Fri May 03 19:20:40, Info:  Writing energy output at time 8 Done. 
+Fri May 03 19:20:40, Info:  Time spent this phase (total): 29.0412 s (min: 29.0329 s, max: 29.0509 s)
+Fri May 03 19:20:40, Info:  Time spent this phase (compute): 29.0411 s (min: 29.0328 s, max: 29.0509 s)
+Fri May 03 19:20:40, Info:  Time spent this phase (IO): 54.4732 ms (min: 41.5370 ms, max: 114.7189 ms)
+Fri May 03 19:20:40, Info:  Performance since the start: 9.2718 TFLOP/s (rank 0: 592.9516 GFLOP/s , average over ranks: 579.4854 GFLOP/s ) 
+Fri May 03 19:20:40, Info:  Performance since last sync point: 9.3403 TFLOP/s (rank 0: 597.3691 GFLOP/s , average over ranks: 583.7714 GFLOP/s ) 
+Fri May 03 19:21:09, Info:  Writing energy output at time 8.5 
+Fri May 03 19:21:09, Info:  Elastic energy (total, % kinematic, % potential):  1.69362e+16  , 28.9842  , 71.0158 
+Fri May 03 19:21:09, Info:  Total momentum (X, Y, Z): -4.9917e+08  , 4.01928e+08  , 1.59051e+09 
+Fri May 03 19:21:09, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 19.0187  , 80.9813 
+Fri May 03 19:21:09, Info:  Seismic moment (without plasticity): 1.07376e+20  Mw: 7.28394 
+Fri May 03 19:21:09, Info:  Writing energy output at time 8.5 Done. 
+Fri May 03 19:21:09, Info:  Time spent this phase (total): 29.0963 s (min: 29.0824 s, max: 29.1392 s)
+Fri May 03 19:21:09, Info:  Time spent this phase (compute): 29.0962 s (min: 29.0823 s, max: 29.1391 s)
+Fri May 03 19:21:09, Info:  Time spent this phase (IO): 48.6929 ms (min: 38.7351 ms, max: 73.9315 ms)
+Fri May 03 19:21:09, Info:  Performance since the start: 9.2747 TFLOP/s (rank 0: 593.1467 GFLOP/s , average over ranks: 579.6714 GFLOP/s ) 
+Fri May 03 19:21:09, Info:  Performance since last sync point: 9.3226 TFLOP/s (rank 0: 596.2859 GFLOP/s , average over ranks: 582.6637 GFLOP/s ) 
+Fri May 03 19:21:38, Info:  Writing energy output at time 9 
+Fri May 03 19:21:38, Info:  Elastic energy (total, % kinematic, % potential):  1.66063e+16  , 28.7211  , 71.2789 
+Fri May 03 19:21:38, Info:  Total momentum (X, Y, Z): -1.90789e+09  , -8.82897e+08  , -1.39811e+10 
+Fri May 03 19:21:38, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 19.5195  , 80.4805 
+Fri May 03 19:21:38, Info:  Seismic moment (without plasticity): 1.07378e+20  Mw: 7.28394 
+Fri May 03 19:21:38, Info:  Writing energy output at time 9 Done. 
+Fri May 03 19:21:38, Info:  Time spent this phase (total): 29.0054 s (min: 28.9720 s, max: 29.0225 s)
+Fri May 03 19:21:38, Info:  Time spent this phase (compute): 29.0053 s (min: 28.9719 s, max: 29.0225 s)
+Fri May 03 19:21:38, Info:  Time spent this phase (IO): 49.8221 ms (min: 38.7723 ms, max: 93.7729 ms)
+Fri May 03 19:21:38, Info:  Performance since the start: 9.2790 TFLOP/s (rank 0: 593.4289 GFLOP/s , average over ranks: 579.9371 GFLOP/s ) 
+Fri May 03 19:21:38, Info:  Performance since last sync point: 9.3519 TFLOP/s (rank 0: 598.2680 GFLOP/s , average over ranks: 584.4921 GFLOP/s ) 
+Fri May 03 19:22:07, Info:  Writing energy output at time 9.5 
+Fri May 03 19:22:07, Info:  Elastic energy (total, % kinematic, % potential):  1.63033e+16  , 28.2084  , 71.7916 
+Fri May 03 19:22:07, Info:  Total momentum (X, Y, Z): 2.79055e+09  , -1.17156e+09  , 2.67643e+10 
+Fri May 03 19:22:07, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 19.6277  , 80.3723 
+Fri May 03 19:22:07, Info:  Seismic moment (without plasticity): 1.07379e+20  Mw: 7.28395 
+Fri May 03 19:22:07, Info:  Writing energy output at time 9.5 Done. 
+Fri May 03 19:22:07, Info:  Time spent this phase (total): 28.9772 s (min: 28.9664 s, max: 28.9876 s)
+Fri May 03 19:22:07, Info:  Time spent this phase (compute): 28.9772 s (min: 28.9663 s, max: 28.9875 s)
+Fri May 03 19:22:07, Info:  Time spent this phase (IO): 51.9646 ms (min: 38.8394 ms, max: 112.8502 ms)
+Fri May 03 19:22:07, Info:  Performance since the start: 9.2833 TFLOP/s (rank 0: 593.6929 GFLOP/s , average over ranks: 580.2044 GFLOP/s ) 
+Fri May 03 19:22:07, Info:  Performance since last sync point: 9.3609 TFLOP/s (rank 0: 598.4844 GFLOP/s , average over ranks: 585.0593 GFLOP/s ) 
+Fri May 03 19:22:36, Info:  Writing faultoutput at time 10.
+Fri May 03 19:22:36, Info:  Writing faultoutput at time 10. Done.
+Fri May 03 19:22:36, Info:  Writing free surface at time 10.
+Fri May 03 19:22:36, Info:  Writing free surface at time 10. Done.
+Fri May 03 19:22:36, Info:  Wrote receivers in 4.4714e-05 seconds. 
+Fri May 03 19:22:36, Info:  Writing energy output at time 10 
+Fri May 03 19:22:36, Info:  Elastic energy (total, % kinematic, % potential):  1.60141e+16  , 27.7213  , 72.2787 
+Fri May 03 19:22:36, Info:  Total momentum (X, Y, Z): 2.2279e+09  , 5.3901e+09  , 2.02768e+10 
+Fri May 03 19:22:36, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 19.4832  , 80.5168 
+Fri May 03 19:22:36, Info:  Seismic moment (without plasticity): 1.0738e+20  Mw: 7.28395 
+Fri May 03 19:22:36, Info:  Writing energy output at time 10 Done. 
+Fri May 03 19:22:36, Info:  Time spent this phase (total): 29.0244 s (min: 29.0222 s, max: 29.0307 s)
+Fri May 03 19:22:36, Info:  Time spent this phase (compute): 29.0244 s (min: 29.0222 s, max: 29.0308 s)
+Fri May 03 19:22:36, Info:  Time spent this phase (IO): 56.7752 ms (min: 41.7485 ms, max: 119.5642 ms)
+Fri May 03 19:22:36, Info:  Performance since the start: 9.2864 TFLOP/s (rank 0: 593.8918 GFLOP/s , average over ranks: 580.3984 GFLOP/s ) 
+Fri May 03 19:22:36, Info:  Performance since last sync point: 9.3457 TFLOP/s (rank 0: 597.6979 GFLOP/s , average over ranks: 584.1080 GFLOP/s ) 
+Fri May 03 19:23:05, Info:  Writing energy output at time 10.5 
+Fri May 03 19:23:05, Info:  Elastic energy (total, % kinematic, % potential):  1.57643e+16  , 27.2464  , 72.7536 
+Fri May 03 19:23:05, Info:  Total momentum (X, Y, Z): -5.86672e+09  , -1.95379e+09  , -1.19934e+11 
+Fri May 03 19:23:05, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 19.5818  , 80.4182 
+Fri May 03 19:23:05, Info:  Seismic moment (without plasticity): 1.07381e+20  Mw: 7.28395 
+Fri May 03 19:23:05, Info:  Writing energy output at time 10.5 Done. 
+Fri May 03 19:23:05, Info:  Time spent this phase (total): 29.2464 s (min: 29.2317 s, max: 29.2644 s)
+Fri May 03 19:23:05, Info:  Time spent this phase (compute): 29.2463 s (min: 29.2314 s, max: 29.2643 s)
+Fri May 03 19:23:05, Info:  Time spent this phase (IO): 47.1554 ms (min: 38.8076 ms, max: 77.0189 ms)
+Fri May 03 19:23:05, Info:  Performance since the start: 9.2858 TFLOP/s (rank 0: 593.8722 GFLOP/s , average over ranks: 580.3639 GFLOP/s ) 
+Fri May 03 19:23:05, Info:  Performance since last sync point: 9.2748 TFLOP/s (rank 0: 593.4788 GFLOP/s , average over ranks: 579.6752 GFLOP/s ) 
+Fri May 03 19:23:34, Info:  Writing energy output at time 11 
+Fri May 03 19:23:34, Info:  Elastic energy (total, % kinematic, % potential):  1.55257e+16  , 26.761  , 73.239 
+Fri May 03 19:23:34, Info:  Total momentum (X, Y, Z): -2.1301e+09  , -9.89964e+09  , 2.61513e+10 
+Fri May 03 19:23:34, Info:  Frictional work (total, % static, % radiated):  3.49307e+16  , 19.7761  , 80.2239 
+Fri May 03 19:23:34, Info:  Seismic moment (without plasticity): 1.07382e+20  Mw: 7.28395 
+Fri May 03 19:23:34, Info:  Writing energy output at time 11 Done. 
+Fri May 03 19:23:34, Info:  Time spent this phase (total): 28.9548 s (min: 28.9421 s, max: 28.9667 s)
+Fri May 03 19:23:34, Info:  Time spent this phase (compute): 28.9547 s (min: 28.9420 s, max: 28.9667 s)
+Fri May 03 19:23:34, Info:  Time spent this phase (IO): 50.7207 ms (min: 38.8169 ms, max: 103.7122 ms)
+Fri May 03 19:23:34, Info:  Performance since the start: 9.2895 TFLOP/s (rank 0: 594.0993 GFLOP/s , average over ranks: 580.5960 GFLOP/s ) 
+Fri May 03 19:23:34, Info:  Performance since last sync point: 9.3682 TFLOP/s (rank 0: 598.9091 GFLOP/s , average over ranks: 585.5127 GFLOP/s ) 
+Fri May 03 19:24:03, Info:  Writing energy output at time 11.5 
+Fri May 03 19:24:03, Info:  Elastic energy (total, % kinematic, % potential):  1.53127e+16  , 26.6875  , 73.3125 
+Fri May 03 19:24:03, Info:  Total momentum (X, Y, Z): 7.9031e+09  , 7.50269e+09  , 3.27736e+11 
+Fri May 03 19:24:03, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9423  , 80.0577 
+Fri May 03 19:24:03, Info:  Seismic moment (without plasticity): 1.07383e+20  Mw: 7.28396 
+Fri May 03 19:24:03, Info:  Writing energy output at time 11.5 Done. 
+Fri May 03 19:24:03, Info:  Time spent this phase (total): 28.9787 s (min: 28.9704 s, max: 28.9898 s)
+Fri May 03 19:24:03, Info:  Time spent this phase (compute): 28.9786 s (min: 28.9704 s, max: 28.9898 s)
+Fri May 03 19:24:03, Info:  Time spent this phase (IO): 52.3729 ms (min: 38.7700 ms, max: 110.8875 ms)
+Fri May 03 19:24:03, Info:  Performance since the start: 9.2926 TFLOP/s (rank 0: 594.2979 GFLOP/s , average over ranks: 580.7873 GFLOP/s ) 
+Fri May 03 19:24:03, Info:  Performance since last sync point: 9.3605 TFLOP/s (rank 0: 598.7009 GFLOP/s , average over ranks: 585.0294 GFLOP/s ) 
+Fri May 03 19:24:32, Info:  Writing faultoutput at time 12.
+Fri May 03 19:24:32, Info:  Writing faultoutput at time 12. Done.
+Fri May 03 19:24:32, Info:  Writing energy output at time 12 
+Fri May 03 19:24:32, Info:  Elastic energy (total, % kinematic, % potential):  1.51254e+16  , 26.6286  , 73.3714 
+Fri May 03 19:24:32, Info:  Total momentum (X, Y, Z): 5.96653e+09  , 1.28349e+10  , 5.87635e+10 
+Fri May 03 19:24:32, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 20.1226  , 79.8774 
+Fri May 03 19:24:32, Info:  Seismic moment (without plasticity): 1.07384e+20  Mw: 7.28396 
+Fri May 03 19:24:32, Info:  Writing energy output at time 12 Done. 
+Fri May 03 19:24:32, Info:  Time spent this phase (total): 28.9354 s (min: 28.9227 s, max: 28.9460 s)
+Fri May 03 19:24:32, Info:  Time spent this phase (compute): 28.9353 s (min: 28.9227 s, max: 28.9460 s)
+Fri May 03 19:24:32, Info:  Time spent this phase (IO): 55.7833 ms (min: 41.5036 ms, max: 119.5889 ms)
+Fri May 03 19:24:32, Info:  Performance since the start: 9.2960 TFLOP/s (rank 0: 594.5122 GFLOP/s , average over ranks: 580.9988 GFLOP/s ) 
+Fri May 03 19:24:32, Info:  Performance since last sync point: 9.3745 TFLOP/s (rank 0: 599.4857 GFLOP/s , average over ranks: 585.9061 GFLOP/s ) 
+Fri May 03 19:25:01, Info:  Writing energy output at time 12.5 
+Fri May 03 19:25:01, Info:  Elastic energy (total, % kinematic, % potential):  1.49446e+16  , 26.1936  , 73.8064 
+Fri May 03 19:25:01, Info:  Total momentum (X, Y, Z): -6.79762e+09  , -1.98033e+10  , -6.10204e+11 
+Fri May 03 19:25:01, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 20.0522  , 79.9478 
+Fri May 03 19:25:01, Info:  Seismic moment (without plasticity): 1.07384e+20  Mw: 7.28396 
+Fri May 03 19:25:01, Info:  Writing energy output at time 12.5 Done. 
+Fri May 03 19:25:01, Info:  Time spent this phase (total): 28.9755 s (min: 28.9709 s, max: 28.9781 s)
+Fri May 03 19:25:01, Info:  Time spent this phase (compute): 28.9754 s (min: 28.9708 s, max: 28.9780 s)
+Fri May 03 19:25:01, Info:  Time spent this phase (IO): 52.4205 ms (min: 38.7740 ms, max: 115.0615 ms)
+Fri May 03 19:25:01, Info:  Performance since the start: 9.2986 TFLOP/s (rank 0: 594.6791 GFLOP/s , average over ranks: 581.1615 GFLOP/s ) 
+Fri May 03 19:25:01, Info:  Performance since last sync point: 9.3615 TFLOP/s (rank 0: 598.7127 GFLOP/s , average over ranks: 585.0943 GFLOP/s ) 
+Fri May 03 19:25:30, Info:  Writing energy output at time 13 
+Fri May 03 19:25:30, Info:  Elastic energy (total, % kinematic, % potential):  1.47726e+16  , 25.8291  , 74.1709 
+Fri May 03 19:25:30, Info:  Total momentum (X, Y, Z): 3.06694e+09  , -2.58949e+10  , -5.21985e+11 
+Fri May 03 19:25:30, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9735  , 80.0265 
+Fri May 03 19:25:30, Info:  Seismic moment (without plasticity): 1.07385e+20  Mw: 7.28396 
+Fri May 03 19:25:30, Info:  Writing energy output at time 13 Done. 
+Fri May 03 19:25:30, Info:  Time spent this phase (total): 29.0026 s (min: 28.9995 s, max: 29.0044 s)
+Fri May 03 19:25:30, Info:  Time spent this phase (compute): 29.0025 s (min: 28.9995 s, max: 29.0043 s)
+Fri May 03 19:25:30, Info:  Time spent this phase (IO): 52.9253 ms (min: 38.7381 ms, max: 117.4027 ms)
+Fri May 03 19:25:30, Info:  Performance since the start: 9.3007 TFLOP/s (rank 0: 594.8112 GFLOP/s , average over ranks: 581.2910 GFLOP/s ) 
+Fri May 03 19:25:30, Info:  Performance since last sync point: 9.3528 TFLOP/s (rank 0: 598.1318 GFLOP/s , average over ranks: 584.5473 GFLOP/s ) 
+Fri May 03 19:25:59, Info:  Writing energy output at time 13.5 
+Fri May 03 19:25:59, Info:  Elastic energy (total, % kinematic, % potential):  1.46079e+16  , 25.6295  , 74.3705 
+Fri May 03 19:25:59, Info:  Total momentum (X, Y, Z): 7.50596e+09  , 4.27922e+10  , 1.1954e+12 
+Fri May 03 19:25:59, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.981  , 80.019 
+Fri May 03 19:25:59, Info:  Seismic moment (without plasticity): 1.07386e+20  Mw: 7.28396 
+Fri May 03 19:25:59, Info:  Writing energy output at time 13.5 Done. 
+Fri May 03 19:25:59, Info:  Time spent this phase (total): 29.1673 s (min: 29.1411 s, max: 29.1872 s)
+Fri May 03 19:25:59, Info:  Time spent this phase (compute): 29.1672 s (min: 29.1411 s, max: 29.1872 s)
+Fri May 03 19:25:59, Info:  Time spent this phase (IO): 47.8325 ms (min: 38.8230 ms, max: 85.5634 ms)
+Fri May 03 19:25:59, Info:  Performance since the start: 9.3006 TFLOP/s (rank 0: 594.8234 GFLOP/s , average over ranks: 581.2894 GFLOP/s ) 
+Fri May 03 19:25:59, Info:  Performance since last sync point: 9.2999 TFLOP/s (rank 0: 595.1406 GFLOP/s , average over ranks: 581.2466 GFLOP/s ) 
+Fri May 03 19:26:28, Info:  Writing faultoutput at time 14.
+Fri May 03 19:26:28, Info:  Writing faultoutput at time 14. Done.
+Fri May 03 19:26:28, Info:  Writing energy output at time 14 
+Fri May 03 19:26:28, Info:  Elastic energy (total, % kinematic, % potential):  1.44487e+16  , 25.4248  , 74.5752 
+Fri May 03 19:26:28, Info:  Total momentum (X, Y, Z): -3.1741e+10  , 7.69314e+10  , 3.63436e+11 
+Fri May 03 19:26:28, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 20.0549  , 79.9451 
+Fri May 03 19:26:28, Info:  Seismic moment (without plasticity): 1.07387e+20  Mw: 7.28397 
+Fri May 03 19:26:28, Info:  Writing energy output at time 14 Done. 
+Fri May 03 19:26:28, Info:  Time spent this phase (total): 28.8960 s (min: 28.8851 s, max: 28.9085 s)
+Fri May 03 19:26:28, Info:  Time spent this phase (compute): 28.8960 s (min: 28.8850 s, max: 28.9085 s)
+Fri May 03 19:26:28, Info:  Time spent this phase (IO): 53.6158 ms (min: 41.4714 ms, max: 104.9165 ms)
+Fri May 03 19:26:28, Info:  Performance since the start: 9.3037 TFLOP/s (rank 0: 595.0174 GFLOP/s , average over ranks: 581.4810 GFLOP/s ) 
+Fri May 03 19:26:28, Info:  Performance since last sync point: 9.3873 TFLOP/s (rank 0: 600.3036 GFLOP/s , average over ranks: 586.7038 GFLOP/s ) 
+Fri May 03 19:26:57, Info:  Writing energy output at time 14.5 
+Fri May 03 19:26:57, Info:  Elastic energy (total, % kinematic, % potential):  1.43001e+16  , 25.1658  , 74.8342 
+Fri May 03 19:26:57, Info:  Total momentum (X, Y, Z): -5.62919e+09  , -1.09354e+11  , -1.35585e+13 
+Fri May 03 19:26:57, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9634  , 80.0366 
+Fri May 03 19:26:57, Info:  Seismic moment (without plasticity): 1.07387e+20  Mw: 7.28397 
+Fri May 03 19:26:57, Info:  Writing energy output at time 14.5 Done. 
+Fri May 03 19:26:57, Info:  Time spent this phase (total): 28.9989 s (min: 28.9752 s, max: 29.0132 s)
+Fri May 03 19:26:57, Info:  Time spent this phase (compute): 28.9988 s (min: 28.9752 s, max: 29.0131 s)
+Fri May 03 19:26:57, Info:  Time spent this phase (IO): 52.6670 ms (min: 38.7591 ms, max: 114.7534 ms)
+Fri May 03 19:26:57, Info:  Performance since the start: 9.3054 TFLOP/s (rank 0: 595.1202 GFLOP/s , average over ranks: 581.5888 GFLOP/s ) 
+Fri May 03 19:26:57, Info:  Performance since last sync point: 9.3539 TFLOP/s (rank 0: 598.0149 GFLOP/s , average over ranks: 584.6217 GFLOP/s ) 
+Fri May 03 19:27:26, Info:  Writing free surface at time 15.
+Fri May 03 19:27:26, Info:  Writing free surface at time 15. Done.
+Fri May 03 19:27:26, Info:  Writing energy output at time 15 
+Fri May 03 19:27:26, Info:  Elastic energy (total, % kinematic, % potential):  1.41408e+16  , 24.7579  , 75.2421 
+Fri May 03 19:27:26, Info:  Total momentum (X, Y, Z): 2.73788e+10  , -2.29526e+11  , -4.91048e+13 
+Fri May 03 19:27:26, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9319  , 80.0681 
+Fri May 03 19:27:26, Info:  Seismic moment (without plasticity): 1.07388e+20  Mw: 7.28397 
+Fri May 03 19:27:26, Info:  Writing energy output at time 15 Done. 
+Fri May 03 19:27:26, Info:  Time spent this phase (total): 28.9738 s (min: 28.9658 s, max: 29.0063 s)
+Fri May 03 19:27:26, Info:  Time spent this phase (compute): 28.9738 s (min: 28.9658 s, max: 29.0062 s)
+Fri May 03 19:27:26, Info:  Time spent this phase (IO): 59.0304 ms (min: 38.9697 ms, max: 129.4958 ms)
+Fri May 03 19:27:26, Info:  Performance since the start: 9.3073 TFLOP/s (rank 0: 595.2350 GFLOP/s , average over ranks: 581.7060 GFLOP/s ) 
+Fri May 03 19:27:26, Info:  Performance since last sync point: 9.3620 TFLOP/s (rank 0: 598.5835 GFLOP/s , average over ranks: 585.1274 GFLOP/s ) 
+Fri May 03 19:27:55, Info:  Writing energy output at time 15.5 
+Fri May 03 19:27:55, Info:  Elastic energy (total, % kinematic, % potential):  1.39949e+16  , 24.4834  , 75.5166 
+Fri May 03 19:27:55, Info:  Total momentum (X, Y, Z): 3.08938e+10  , 2.03748e+11  , -1.16694e+14 
+Fri May 03 19:27:55, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9897  , 80.0103 
+Fri May 03 19:27:55, Info:  Seismic moment (without plasticity): 1.07388e+20  Mw: 7.28397 
+Fri May 03 19:27:55, Info:  Writing energy output at time 15.5 Done. 
+Fri May 03 19:27:55, Info:  Time spent this phase (total): 29.2383 s (min: 29.2226 s, max: 29.2603 s)
+Fri May 03 19:27:55, Info:  Time spent this phase (compute): 29.2382 s (min: 29.2226 s, max: 29.2603 s)
+Fri May 03 19:27:55, Info:  Time spent this phase (IO): 50.3962 ms (min: 38.8068 ms, max: 90.7710 ms)
+Fri May 03 19:27:55, Info:  Performance since the start: 9.3063 TFLOP/s (rank 0: 595.1817 GFLOP/s , average over ranks: 581.6455 GFLOP/s ) 
+Fri May 03 19:27:55, Info:  Performance since last sync point: 9.2774 TFLOP/s (rank 0: 593.5856 GFLOP/s , average over ranks: 579.8362 GFLOP/s ) 
+Fri May 03 19:28:24, Info:  Writing faultoutput at time 16.
+Fri May 03 19:28:24, Info:  Writing faultoutput at time 16. Done.
+Fri May 03 19:28:24, Info:  Writing energy output at time 16 
+Fri May 03 19:28:24, Info:  Elastic energy (total, % kinematic, % potential):  1.38623e+16  , 24.2337  , 75.7663 
+Fri May 03 19:28:24, Info:  Total momentum (X, Y, Z): 1.63127e+11  , 5.60593e+11  , -2.46444e+14 
+Fri May 03 19:28:24, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9724  , 80.0276 
+Fri May 03 19:28:24, Info:  Seismic moment (without plasticity): 1.07389e+20  Mw: 7.28397 
+Fri May 03 19:28:24, Info:  Writing energy output at time 16 Done. 
+Fri May 03 19:28:24, Info:  Time spent this phase (total): 28.9177 s (min: 28.9028 s, max: 28.9223 s)
+Fri May 03 19:28:24, Info:  Time spent this phase (compute): 28.9176 s (min: 28.9028 s, max: 28.9223 s)
+Fri May 03 19:28:24, Info:  Time spent this phase (IO): 55.5727 ms (min: 41.4966 ms, max: 115.1153 ms)
+Fri May 03 19:28:24, Info:  Performance since the start: 9.3086 TFLOP/s (rank 0: 595.3271 GFLOP/s , average over ranks: 581.7887 GFLOP/s ) 
+Fri May 03 19:28:24, Info:  Performance since last sync point: 9.3802 TFLOP/s (rank 0: 599.8699 GFLOP/s , average over ranks: 586.2640 GFLOP/s ) 
+Fri May 03 19:28:53, Info:  Writing energy output at time 16.5 
+Fri May 03 19:28:53, Info:  Elastic energy (total, % kinematic, % potential):  1.37285e+16  , 23.9802  , 76.0198 
+Fri May 03 19:28:53, Info:  Total momentum (X, Y, Z): 6.2762e+10  , 5.71903e+10  , -4.78521e+14 
+Fri May 03 19:28:53, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9618  , 80.0382 
+Fri May 03 19:28:53, Info:  Seismic moment (without plasticity): 1.07389e+20  Mw: 7.28397 
+Fri May 03 19:28:53, Info:  Writing energy output at time 16.5 Done. 
+Fri May 03 19:28:53, Info:  Time spent this phase (total): 28.9446 s (min: 28.9409 s, max: 28.9489 s)
+Fri May 03 19:28:53, Info:  Time spent this phase (compute): 28.9445 s (min: 28.9406 s, max: 28.9488 s)
+Fri May 03 19:28:53, Info:  Time spent this phase (IO): 51.4777 ms (min: 38.8252 ms, max: 105.3603 ms)
+Fri May 03 19:28:53, Info:  Performance since the start: 9.3105 TFLOP/s (rank 0: 595.4510 GFLOP/s , average over ranks: 581.9071 GFLOP/s ) 
+Fri May 03 19:28:53, Info:  Performance since last sync point: 9.3715 TFLOP/s (rank 0: 599.4429 GFLOP/s , average over ranks: 585.7192 GFLOP/s ) 
+Fri May 03 19:29:22, Info:  Writing energy output at time 17 
+Fri May 03 19:29:22, Info:  Elastic energy (total, % kinematic, % potential):  1.35995e+16  , 23.7441  , 76.2559 
+Fri May 03 19:29:22, Info:  Total momentum (X, Y, Z): -6.0509e+11  , -6.43843e+11  , -8.19219e+14 
+Fri May 03 19:29:22, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9048  , 80.0952 
+Fri May 03 19:29:22, Info:  Seismic moment (without plasticity): 1.0739e+20  Mw: 7.28398 
+Fri May 03 19:29:22, Info:  Writing energy output at time 17 Done. 
+Fri May 03 19:29:22, Info:  Time spent this phase (total): 28.9744 s (min: 28.9650 s, max: 28.9834 s)
+Fri May 03 19:29:22, Info:  Time spent this phase (compute): 28.9744 s (min: 28.9649 s, max: 28.9834 s)
+Fri May 03 19:29:22, Info:  Time spent this phase (IO): 52.9728 ms (min: 38.8317 ms, max: 113.3507 ms)
+Fri May 03 19:29:22, Info:  Performance since the start: 9.3120 TFLOP/s (rank 0: 595.5482 GFLOP/s , average over ranks: 582.0010 GFLOP/s ) 
+Fri May 03 19:29:22, Info:  Performance since last sync point: 9.3619 TFLOP/s (rank 0: 598.7745 GFLOP/s , average over ranks: 585.1163 GFLOP/s ) 
+Fri May 03 19:29:51, Info:  Writing energy output at time 17.5 
+Fri May 03 19:29:51, Info:  Elastic energy (total, % kinematic, % potential):  1.34756e+16  , 23.5211  , 76.4789 
+Fri May 03 19:29:51, Info:  Total momentum (X, Y, Z): -9.88467e+11  , -7.61183e+11  , -1.21387e+15 
+Fri May 03 19:29:51, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.8146  , 80.1854 
+Fri May 03 19:29:51, Info:  Seismic moment (without plasticity): 1.0739e+20  Mw: 7.28398 
+Fri May 03 19:29:51, Info:  Writing energy output at time 17.5 Done. 
+Fri May 03 19:29:51, Info:  Time spent this phase (total): 29.1084 s (min: 29.0946 s, max: 29.1370 s)
+Fri May 03 19:29:51, Info:  Time spent this phase (compute): 29.1083 s (min: 29.0946 s, max: 29.1369 s)
+Fri May 03 19:29:51, Info:  Time spent this phase (IO): 49.7470 ms (min: 38.7895 ms, max: 92.1131 ms)
+Fri May 03 19:29:51, Info:  Performance since the start: 9.3122 TFLOP/s (rank 0: 595.5609 GFLOP/s , average over ranks: 582.0130 GFLOP/s ) 
+Fri May 03 19:29:51, Info:  Performance since last sync point: 9.3188 TFLOP/s (rank 0: 595.9946 GFLOP/s , average over ranks: 582.4222 GFLOP/s ) 
+Fri May 03 19:30:20, Info:  Writing faultoutput at time 18.
+Fri May 03 19:30:20, Info:  Writing faultoutput at time 18. Done.
+Fri May 03 19:30:20, Info:  Writing energy output at time 18 
+Fri May 03 19:30:20, Info:  Elastic energy (total, % kinematic, % potential):  1.33554e+16  , 23.3672  , 76.6328 
+Fri May 03 19:30:20, Info:  Total momentum (X, Y, Z): 3.33433e+10  , -3.91267e+11  , -1.5748e+15 
+Fri May 03 19:30:20, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.7885  , 80.2115 
+Fri May 03 19:30:20, Info:  Seismic moment (without plasticity): 1.07391e+20  Mw: 7.28398 
+Fri May 03 19:30:20, Info:  Writing energy output at time 18 Done. 
+Fri May 03 19:30:20, Info:  Time spent this phase (total): 29.0332 s (min: 29.0112 s, max: 29.0386 s)
+Fri May 03 19:30:20, Info:  Time spent this phase (compute): 29.0332 s (min: 29.0112 s, max: 29.0385 s)
+Fri May 03 19:30:20, Info:  Time spent this phase (IO): 53.8564 ms (min: 41.4910 ms, max: 101.1659 ms)
+Fri May 03 19:30:20, Info:  Performance since the start: 9.3131 TFLOP/s (rank 0: 595.6128 GFLOP/s , average over ranks: 582.0661 GFLOP/s ) 
+Fri May 03 19:30:20, Info:  Performance since last sync point: 9.3429 TFLOP/s (rank 0: 597.4355 GFLOP/s , average over ranks: 583.9306 GFLOP/s ) 
+Fri May 03 19:30:49, Info:  Writing energy output at time 18.5 
+Fri May 03 19:30:49, Info:  Elastic energy (total, % kinematic, % potential):  1.32424e+16  , 23.1636  , 76.8364 
+Fri May 03 19:30:49, Info:  Total momentum (X, Y, Z): 2.02321e+12  , 5.24855e+11  , -1.83094e+15 
+Fri May 03 19:30:49, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.8738  , 80.1262 
+Fri May 03 19:30:49, Info:  Seismic moment (without plasticity): 1.07391e+20  Mw: 7.28398 
+Fri May 03 19:30:49, Info:  Writing energy output at time 18.5 Done. 
+Fri May 03 19:30:49, Info:  Time spent this phase (total): 28.9992 s (min: 28.9901 s, max: 29.0017 s)
+Fri May 03 19:30:49, Info:  Time spent this phase (compute): 28.9992 s (min: 28.9900 s, max: 29.0016 s)
+Fri May 03 19:30:49, Info:  Time spent this phase (IO): 52.2232 ms (min: 38.7909 ms, max: 111.6334 ms)
+Fri May 03 19:30:49, Info:  Performance since the start: 9.3142 TFLOP/s (rank 0: 595.6840 GFLOP/s , average over ranks: 582.1347 GFLOP/s ) 
+Fri May 03 19:30:49, Info:  Performance since last sync point: 9.3538 TFLOP/s (rank 0: 598.2559 GFLOP/s , average over ranks: 584.6152 GFLOP/s ) 
+Fri May 03 19:31:18, Info:  Writing energy output at time 19 
+Fri May 03 19:31:18, Info:  Elastic energy (total, % kinematic, % potential):  1.3131e+16  , 22.863  , 77.137 
+Fri May 03 19:31:18, Info:  Total momentum (X, Y, Z): 3.07422e+12  , 1.85817e+12  , -1.95147e+15 
+Fri May 03 19:31:18, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9349  , 80.0651 
+Fri May 03 19:31:18, Info:  Seismic moment (without plasticity): 1.07392e+20  Mw: 7.28398 
+Fri May 03 19:31:18, Info:  Writing energy output at time 19 Done. 
+Fri May 03 19:31:18, Info:  Time spent this phase (total): 28.9741 s (min: 28.9515 s, max: 29.0130 s)
+Fri May 03 19:31:18, Info:  Time spent this phase (compute): 28.9740 s (min: 28.9515 s, max: 29.0129 s)
+Fri May 03 19:31:18, Info:  Time spent this phase (IO): 46.6394 ms (min: 38.7922 ms, max: 64.0137 ms)
+Fri May 03 19:31:18, Info:  Performance since the start: 9.3154 TFLOP/s (rank 0: 595.7672 GFLOP/s , average over ranks: 582.2129 GFLOP/s ) 
+Fri May 03 19:31:18, Info:  Performance since last sync point: 9.3620 TFLOP/s (rank 0: 598.8611 GFLOP/s , average over ranks: 585.1227 GFLOP/s ) 
+Fri May 03 19:31:47, Info:  Writing energy output at time 19.5 
+Fri May 03 19:31:47, Info:  Elastic energy (total, % kinematic, % potential):  1.30224e+16  , 22.5768  , 77.4232 
+Fri May 03 19:31:47, Info:  Total momentum (X, Y, Z): 1.52797e+12  , 1.7601e+12  , -1.95528e+15 
+Fri May 03 19:31:47, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9656  , 80.0344 
+Fri May 03 19:31:47, Info:  Seismic moment (without plasticity): 1.07392e+20  Mw: 7.28398 
+Fri May 03 19:31:47, Info:  Writing energy output at time 19.5 Done. 
+Fri May 03 19:31:47, Info:  Time spent this phase (total): 28.8751 s (min: 28.8340 s, max: 28.8993 s)
+Fri May 03 19:31:47, Info:  Time spent this phase (compute): 28.8750 s (min: 28.8339 s, max: 28.8993 s)
+Fri May 03 19:31:47, Info:  Time spent this phase (IO): 52.6773 ms (min: 38.8073 ms, max: 115.7296 ms)
+Fri May 03 19:31:47, Info:  Performance since the start: 9.3174 TFLOP/s (rank 0: 595.8919 GFLOP/s , average over ranks: 582.3380 GFLOP/s ) 
+Fri May 03 19:31:47, Info:  Performance since last sync point: 9.3941 TFLOP/s (rank 0: 600.6711 GFLOP/s , average over ranks: 587.1310 GFLOP/s ) 
+Fri May 03 19:32:16, Info:  Writing faultoutput at time 20.
+Fri May 03 19:32:16, Info:  Writing faultoutput at time 20. Done.
+Fri May 03 19:32:16, Info:  Writing free surface at time 20.
+Fri May 03 19:32:16, Info:  Writing free surface at time 20. Done.
+Fri May 03 19:32:16, Info:  Wrote receivers in 6.02e-07 seconds. 
+Fri May 03 19:32:16, Info:  Writing energy output at time 20 
+Fri May 03 19:32:16, Info:  Elastic energy (total, % kinematic, % potential):  1.29191e+16  , 22.4126  , 77.5874 
+Fri May 03 19:32:16, Info:  Total momentum (X, Y, Z): -2.51845e+12  , -6.07521e+11  , -1.90946e+15 
+Fri May 03 19:32:16, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 20.0206  , 79.9794 
+Fri May 03 19:32:16, Info:  Seismic moment (without plasticity): 1.07393e+20  Mw: 7.28398 
+Fri May 03 19:32:16, Info:  Writing energy output at time 20 Done. 
+Fri May 03 19:32:16, Info:  Time spent this phase (total): 29.1080 s (min: 29.1048 s, max: 29.1112 s)
+Fri May 03 19:32:16, Info:  Time spent this phase (compute): 29.1080 s (min: 29.1047 s, max: 29.1113 s)
+Fri May 03 19:32:16, Info:  Time spent this phase (IO): 56.4213 ms (min: 41.6434 ms, max: 119.5572 ms)
+Fri May 03 19:32:16, Info:  Performance since the start: 9.3174 TFLOP/s (rank 0: 595.8944 GFLOP/s , average over ranks: 582.3403 GFLOP/s ) 
+Fri May 03 19:32:16, Info:  Performance since last sync point: 9.3189 TFLOP/s (rank 0: 595.9904 GFLOP/s , average over ranks: 582.4301 GFLOP/s ) 
+Fri May 03 19:32:45, Info:  Writing energy output at time 20.5 
+Fri May 03 19:32:45, Info:  Elastic energy (total, % kinematic, % potential):  1.28199e+16  , 22.2431  , 77.7569 
+Fri May 03 19:32:45, Info:  Total momentum (X, Y, Z): -6.55476e+12  , -2.26874e+12  , -1.87393e+15 
+Fri May 03 19:32:45, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 20.069  , 79.931 
+Fri May 03 19:32:45, Info:  Seismic moment (without plasticity): 1.07393e+20  Mw: 7.28398 
+Fri May 03 19:32:45, Info:  Writing energy output at time 20.5 Done. 
+Fri May 03 19:32:45, Info:  Time spent this phase (total): 29.1142 s (min: 29.1117 s, max: 29.1231 s)
+Fri May 03 19:32:45, Info:  Time spent this phase (compute): 29.1141 s (min: 29.1116 s, max: 29.1230 s)
+Fri May 03 19:32:45, Info:  Time spent this phase (IO): 51.9435 ms (min: 39.4457 ms, max: 112.0062 ms)
+Fri May 03 19:32:45, Info:  Performance since the start: 9.3174 TFLOP/s (rank 0: 595.8949 GFLOP/s , average over ranks: 582.3395 GFLOP/s ) 
+Fri May 03 19:32:45, Info:  Performance since last sync point: 9.3169 TFLOP/s (rank 0: 595.9178 GFLOP/s , average over ranks: 582.3065 GFLOP/s ) 
+Fri May 03 19:33:14, Info:  Writing energy output at time 21 
+Fri May 03 19:33:14, Info:  Elastic energy (total, % kinematic, % potential):  1.27269e+16  , 22.0319  , 77.9681 
+Fri May 03 19:33:14, Info:  Total momentum (X, Y, Z): -6.79502e+12  , -2.33711e+12  , -1.82475e+15 
+Fri May 03 19:33:14, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 20.1515  , 79.8485 
+Fri May 03 19:33:14, Info:  Seismic moment (without plasticity): 1.07394e+20  Mw: 7.28399 
+Fri May 03 19:33:14, Info:  Writing energy output at time 21 Done. 
+Fri May 03 19:33:14, Info:  Time spent this phase (total): 28.8897 s (min: 28.8786 s, max: 28.9030 s)
+Fri May 03 19:33:14, Info:  Time spent this phase (compute): 28.8896 s (min: 28.8782 s, max: 28.9029 s)
+Fri May 03 19:33:14, Info:  Time spent this phase (IO): 48.0838 ms (min: 38.7773 ms, max: 82.4291 ms)
+Fri May 03 19:33:14, Info:  Performance since the start: 9.3191 TFLOP/s (rank 0: 596.0093 GFLOP/s , average over ranks: 582.4456 GFLOP/s ) 
+Fri May 03 19:33:14, Info:  Performance since last sync point: 9.3893 TFLOP/s (rank 0: 600.7369 GFLOP/s , average over ranks: 586.8319 GFLOP/s ) 
+Fri May 03 19:33:43, Info:  Writing energy output at time 21.5 
+Fri May 03 19:33:43, Info:  Elastic energy (total, % kinematic, % potential):  1.26397e+16  , 21.8197  , 78.1803 
+Fri May 03 19:33:43, Info:  Total momentum (X, Y, Z): -1.57097e+12  , -3.43221e+12  , -1.66865e+15 
+Fri May 03 19:33:43, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 20.2321  , 79.7679 
+Fri May 03 19:33:43, Info:  Seismic moment (without plasticity): 1.07394e+20  Mw: 7.28399 
+Fri May 03 19:33:43, Info:  Writing energy output at time 21.5 Done. 
+Fri May 03 19:33:43, Info:  Time spent this phase (total): 28.9151 s (min: 28.9082 s, max: 28.9226 s)
+Fri May 03 19:33:43, Info:  Time spent this phase (compute): 28.9150 s (min: 28.9081 s, max: 28.9226 s)
+Fri May 03 19:33:43, Info:  Time spent this phase (IO): 49.2100 ms (min: 38.7523 ms, max: 95.3329 ms)
+Fri May 03 19:33:43, Info:  Performance since the start: 9.3206 TFLOP/s (rank 0: 596.1012 GFLOP/s , average over ranks: 582.5351 GFLOP/s ) 
+Fri May 03 19:33:43, Info:  Performance since last sync point: 9.3811 TFLOP/s (rank 0: 599.9874 GFLOP/s , average over ranks: 586.3176 GFLOP/s ) 
+Fri May 03 19:34:12, Info:  Writing faultoutput at time 22.
+Fri May 03 19:34:12, Info:  Writing faultoutput at time 22. Done.
+Fri May 03 19:34:12, Info:  Writing energy output at time 22 
+Fri May 03 19:34:12, Info:  Elastic energy (total, % kinematic, % potential):  1.25554e+16  , 21.5736  , 78.4264 
+Fri May 03 19:34:12, Info:  Total momentum (X, Y, Z): 6.49829e+12  , -1.51667e+12  , -1.34648e+15 
+Fri May 03 19:34:12, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 20.2007  , 79.7993 
+Fri May 03 19:34:12, Info:  Seismic moment (without plasticity): 1.07394e+20  Mw: 7.28399 
+Fri May 03 19:34:12, Info:  Writing energy output at time 22 Done. 
+Fri May 03 19:34:12, Info:  Time spent this phase (total): 28.9351 s (min: 28.9218 s, max: 28.9493 s)
+Fri May 03 19:34:12, Info:  Time spent this phase (compute): 28.9350 s (min: 28.9217 s, max: 28.9493 s)
+Fri May 03 19:34:12, Info:  Time spent this phase (IO): 56.2961 ms (min: 41.5102 ms, max: 119.3899 ms)
+Fri May 03 19:34:12, Info:  Performance since the start: 9.3218 TFLOP/s (rank 0: 596.1729 GFLOP/s , average over ranks: 582.6114 GFLOP/s ) 
+Fri May 03 19:34:12, Info:  Performance since last sync point: 9.3746 TFLOP/s (rank 0: 599.2701 GFLOP/s , average over ranks: 585.9121 GFLOP/s ) 
+Fri May 03 19:34:41, Info:  Writing energy output at time 22.5 
+Fri May 03 19:34:41, Info:  Elastic energy (total, % kinematic, % potential):  1.24726e+16  , 21.3411  , 78.6589 
+Fri May 03 19:34:41, Info:  Total momentum (X, Y, Z): 1.2647e+13  , 8.8241e+12  , -8.92971e+14 
+Fri May 03 19:34:41, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 20.0696  , 79.9304 
+Fri May 03 19:34:41, Info:  Seismic moment (without plasticity): 1.07395e+20  Mw: 7.28399 
+Fri May 03 19:34:41, Info:  Writing energy output at time 22.5 Done. 
+Fri May 03 19:34:41, Info:  Time spent this phase (total): 28.9777 s (min: 28.9766 s, max: 28.9784 s)
+Fri May 03 19:34:41, Info:  Time spent this phase (compute): 28.9776 s (min: 28.9763 s, max: 28.9784 s)
+Fri May 03 19:34:41, Info:  Time spent this phase (IO): 52.5303 ms (min: 38.7726 ms, max: 115.4212 ms)
+Fri May 03 19:34:41, Info:  Performance since the start: 9.3226 TFLOP/s (rank 0: 596.2289 GFLOP/s , average over ranks: 582.6654 GFLOP/s ) 
+Fri May 03 19:34:41, Info:  Performance since last sync point: 9.3608 TFLOP/s (rank 0: 598.7042 GFLOP/s , average over ranks: 585.0503 GFLOP/s ) 
+Fri May 03 19:35:10, Info:  Writing energy output at time 23 
+Fri May 03 19:35:10, Info:  Elastic energy (total, % kinematic, % potential):  1.23947e+16  , 21.1995  , 78.8005 
+Fri May 03 19:35:10, Info:  Total momentum (X, Y, Z): 1.24538e+13  , 1.54805e+13  , -4.01521e+14 
+Fri May 03 19:35:10, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.9176  , 80.0824 
+Fri May 03 19:35:10, Info:  Seismic moment (without plasticity): 1.07395e+20  Mw: 7.28399 
+Fri May 03 19:35:10, Info:  Writing energy output at time 23 Done. 
+Fri May 03 19:35:10, Info:  Time spent this phase (total): 28.8740 s (min: 28.8684 s, max: 28.8781 s)
+Fri May 03 19:35:10, Info:  Time spent this phase (compute): 28.8739 s (min: 28.8681 s, max: 28.8781 s)
+Fri May 03 19:35:10, Info:  Time spent this phase (IO): 51.9520 ms (min: 38.7463 ms, max: 108.4817 ms)
+Fri May 03 19:35:10, Info:  Performance since the start: 9.3242 TFLOP/s (rank 0: 596.3307 GFLOP/s , average over ranks: 582.7622 GFLOP/s ) 
+Fri May 03 19:35:10, Info:  Performance since last sync point: 9.3944 TFLOP/s (rank 0: 600.9483 GFLOP/s , average over ranks: 587.1508 GFLOP/s ) 
+Fri May 03 19:35:39, Info:  Writing energy output at time 23.5 
+Fri May 03 19:35:39, Info:  Elastic energy (total, % kinematic, % potential):  1.23225e+16  , 21.127  , 78.873 
+Fri May 03 19:35:39, Info:  Total momentum (X, Y, Z): 1.20265e+12  , -4.27353e+09  , 2.54935e+13 
+Fri May 03 19:35:39, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.8125  , 80.1875 
+Fri May 03 19:35:39, Info:  Seismic moment (without plasticity): 1.07395e+20  Mw: 7.28399 
+Fri May 03 19:35:39, Info:  Writing energy output at time 23.5 Done. 
+Fri May 03 19:35:39, Info:  Time spent this phase (total): 28.8531 s (min: 28.8432 s, max: 28.8632 s)
+Fri May 03 19:35:39, Info:  Time spent this phase (compute): 28.8531 s (min: 28.8432 s, max: 28.8632 s)
+Fri May 03 19:35:39, Info:  Time spent this phase (IO): 50.0501 ms (min: 38.8086 ms, max: 97.1469 ms)
+Fri May 03 19:35:39, Info:  Performance since the start: 9.3258 TFLOP/s (rank 0: 596.4357 GFLOP/s , average over ranks: 582.8637 GFLOP/s ) 
+Fri May 03 19:35:39, Info:  Performance since last sync point: 9.4012 TFLOP/s (rank 0: 601.3074 GFLOP/s , average over ranks: 587.5754 GFLOP/s ) 
+Fri May 03 19:36:08, Info:  Writing faultoutput at time 24.
+Fri May 03 19:36:08, Info:  Writing faultoutput at time 24. Done.
+Fri May 03 19:36:08, Info:  Writing energy output at time 24 
+Fri May 03 19:36:08, Info:  Elastic energy (total, % kinematic, % potential):  1.22515e+16  , 20.9987  , 79.0013 
+Fri May 03 19:36:08, Info:  Total momentum (X, Y, Z): -2.68117e+13  , -2.95239e+13  , 3.03038e+14 
+Fri May 03 19:36:08, Info:  Frictional work (total, % static, % radiated):  3.49306e+16  , 19.8048  , 80.1952 
+Fri May 03 19:36:08, Info:  Seismic moment (without plasticity): 1.07396e+20  Mw: 7.28399 
+Fri May 03 19:36:08, Info:  Writing energy output at time 24 Done. 
+Fri May 03 19:36:08, Info:  Time spent this phase (total): 29.0721 s (min: 29.0618 s, max: 29.0810 s)
+Fri May 03 19:36:08, Info:  Time spent this phase (compute): 29.0720 s (min: 29.0617 s, max: 29.0810 s)
+Fri May 03 19:36:08, Info:  Time spent this phase (IO): 55.9994 ms (min: 41.4743 ms, max: 118.5378 ms)
+Fri May 03 19:36:08, Info:  Performance since the start: 9.3259 TFLOP/s (rank 0: 596.4382 GFLOP/s , average over ranks: 582.8697 GFLOP/s ) 
+Fri May 03 19:36:08, Info:  Performance since last sync point: 9.3304 TFLOP/s (rank 0: 596.5557 GFLOP/s , average over ranks: 583.1505 GFLOP/s ) 
+Fri May 03 19:36:37, Info:  Writing energy output at time 24.5 
+Fri May 03 19:36:37, Info:  Elastic energy (total, % kinematic, % potential):  1.21816e+16  , 20.801  , 79.199 
+Fri May 03 19:36:37, Info:  Total momentum (X, Y, Z): -7.7418e+13  , -4.38929e+13  , 3.98715e+14 
+Fri May 03 19:36:37, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.8885  , 80.1115 
+Fri May 03 19:36:37, Info:  Seismic moment (without plasticity): 1.07396e+20  Mw: 7.28399 
+Fri May 03 19:36:37, Info:  Writing energy output at time 24.5 Done. 
+Fri May 03 19:36:37, Info:  Time spent this phase (total): 29.0295 s (min: 29.0129 s, max: 29.0534 s)
+Fri May 03 19:36:37, Info:  Time spent this phase (compute): 29.0294 s (min: 29.0125 s, max: 29.0533 s)
+Fri May 03 19:36:37, Info:  Time spent this phase (IO): 48.9163 ms (min: 38.8457 ms, max: 83.8898 ms)
+Fri May 03 19:36:37, Info:  Performance since the start: 9.3263 TFLOP/s (rank 0: 596.4691 GFLOP/s , average over ranks: 582.8929 GFLOP/s ) 
+Fri May 03 19:36:37, Info:  Performance since last sync point: 9.3441 TFLOP/s (rank 0: 597.9561 GFLOP/s , average over ranks: 584.0060 GFLOP/s ) 
+Fri May 03 19:37:06, Info:  Writing free surface at time 25.
+Fri May 03 19:37:06, Info:  Writing free surface at time 25. Done.
+Fri May 03 19:37:06, Info:  Writing energy output at time 25 
+Fri May 03 19:37:06, Info:  Elastic energy (total, % kinematic, % potential):  1.21159e+16  , 20.5934  , 79.4066 
+Fri May 03 19:37:06, Info:  Total momentum (X, Y, Z): -1.55152e+14  , -4.0423e+13  , 3.51697e+14 
+Fri May 03 19:37:06, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.9913  , 80.0087 
+Fri May 03 19:37:06, Info:  Seismic moment (without plasticity): 1.07397e+20  Mw: 7.28399 
+Fri May 03 19:37:06, Info:  Writing energy output at time 25 Done. 
+Fri May 03 19:37:06, Info:  Time spent this phase (total): 29.0562 s (min: 29.0265 s, max: 29.0883 s)
+Fri May 03 19:37:06, Info:  Time spent this phase (compute): 29.0561 s (min: 29.0265 s, max: 29.0883 s)
+Fri May 03 19:37:06, Info:  Time spent this phase (IO): 58.3097 ms (min: 38.9467 ms, max: 123.7635 ms)
+Fri May 03 19:37:06, Info:  Performance since the start: 9.3265 TFLOP/s (rank 0: 596.4739 GFLOP/s , average over ranks: 582.9044 GFLOP/s ) 
+Fri May 03 19:37:06, Info:  Performance since last sync point: 9.3355 TFLOP/s (rank 0: 596.7056 GFLOP/s , average over ranks: 583.4709 GFLOP/s ) 
+Fri May 03 19:37:35, Info:  Writing energy output at time 25.5 
+Fri May 03 19:37:35, Info:  Elastic energy (total, % kinematic, % potential):  1.20544e+16  , 20.4056  , 79.5944 
+Fri May 03 19:37:35, Info:  Total momentum (X, Y, Z): -2.60827e+14  , -6.75371e+13  , 2.31929e+14 
+Fri May 03 19:37:35, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 20.0248  , 79.9752 
+Fri May 03 19:37:35, Info:  Seismic moment (without plasticity): 1.07397e+20  Mw: 7.28399 
+Fri May 03 19:37:35, Info:  Writing energy output at time 25.5 Done. 
+Fri May 03 19:37:35, Info:  Time spent this phase (total): 28.9234 s (min: 28.9000 s, max: 28.9357 s)
+Fri May 03 19:37:35, Info:  Time spent this phase (compute): 28.9234 s (min: 28.9000 s, max: 28.9356 s)
+Fri May 03 19:37:35, Info:  Time spent this phase (IO): 49.9068 ms (min: 38.7653 ms, max: 96.9628 ms)
+Fri May 03 19:37:35, Info:  Performance since the start: 9.3275 TFLOP/s (rank 0: 596.5410 GFLOP/s , average over ranks: 582.9676 GFLOP/s ) 
+Fri May 03 19:37:35, Info:  Performance since last sync point: 9.3783 TFLOP/s (rank 0: 599.9170 GFLOP/s , average over ranks: 586.1465 GFLOP/s ) 
+Fri May 03 19:38:04, Info:  Writing faultoutput at time 26.
+Fri May 03 19:38:04, Info:  Writing faultoutput at time 26. Done.
+Fri May 03 19:38:04, Info:  Writing energy output at time 26 
+Fri May 03 19:38:04, Info:  Elastic energy (total, % kinematic, % potential):  1.19958e+16  , 20.2853  , 79.7147 
+Fri May 03 19:38:04, Info:  Total momentum (X, Y, Z): -3.90277e+14  , -1.90395e+14  , 8.65359e+13 
+Fri May 03 19:38:04, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.9908  , 80.0092 
+Fri May 03 19:38:04, Info:  Seismic moment (without plasticity): 1.07397e+20  Mw: 7.284 
+Fri May 03 19:38:04, Info:  Writing energy output at time 26 Done. 
+Fri May 03 19:38:04, Info:  Time spent this phase (total): 29.0945 s (min: 29.0836 s, max: 29.1042 s)
+Fri May 03 19:38:04, Info:  Time spent this phase (compute): 29.0945 s (min: 29.0835 s, max: 29.1041 s)
+Fri May 03 19:38:04, Info:  Time spent this phase (IO): 54.4014 ms (min: 41.7347 ms, max: 101.3539 ms)
+Fri May 03 19:38:04, Info:  Performance since the start: 9.3274 TFLOP/s (rank 0: 596.5366 GFLOP/s , average over ranks: 582.9625 GFLOP/s ) 
+Fri May 03 19:38:04, Info:  Performance since last sync point: 9.3232 TFLOP/s (rank 0: 596.3106 GFLOP/s , average over ranks: 582.7006 GFLOP/s ) 
+Fri May 03 19:38:33, Info:  Writing energy output at time 26.5 
+Fri May 03 19:38:33, Info:  Elastic energy (total, % kinematic, % potential):  1.19392e+16  , 20.178  , 79.822 
+Fri May 03 19:38:33, Info:  Total momentum (X, Y, Z): -5.38045e+14  , -4.3584e+14  , -6.01537e+13 
+Fri May 03 19:38:33, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.9557  , 80.0443 
+Fri May 03 19:38:33, Info:  Seismic moment (without plasticity): 1.07397e+20  Mw: 7.284 
+Fri May 03 19:38:33, Info:  Writing energy output at time 26.5 Done. 
+Fri May 03 19:38:33, Info:  Time spent this phase (total): 28.8730 s (min: 28.8582 s, max: 28.8819 s)
+Fri May 03 19:38:33, Info:  Time spent this phase (compute): 28.8729 s (min: 28.8581 s, max: 28.8818 s)
+Fri May 03 19:38:33, Info:  Time spent this phase (IO): 50.8843 ms (min: 38.7838 ms, max: 115.3654 ms)
+Fri May 03 19:38:33, Info:  Performance since the start: 9.3287 TFLOP/s (rank 0: 596.6167 GFLOP/s , average over ranks: 583.0414 GFLOP/s ) 
+Fri May 03 19:38:33, Info:  Performance since last sync point: 9.3948 TFLOP/s (rank 0: 600.8151 GFLOP/s , average over ranks: 587.1721 GFLOP/s ) 
+Fri May 03 19:39:02, Info:  Writing energy output at time 27 
+Fri May 03 19:39:02, Info:  Elastic energy (total, % kinematic, % potential):  1.18831e+16  , 19.9957  , 80.0043 
+Fri May 03 19:39:02, Info:  Total momentum (X, Y, Z): -7.03373e+14  , -7.75232e+14  , -1.75471e+14 
+Fri May 03 19:39:02, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.9408  , 80.0592 
+Fri May 03 19:39:02, Info:  Seismic moment (without plasticity): 1.07398e+20  Mw: 7.284 
+Fri May 03 19:39:02, Info:  Writing energy output at time 27 Done. 
+Fri May 03 19:39:02, Info:  Time spent this phase (total): 28.9300 s (min: 28.9148 s, max: 28.9331 s)
+Fri May 03 19:39:02, Info:  Time spent this phase (compute): 28.9299 s (min: 28.9147 s, max: 28.9331 s)
+Fri May 03 19:39:02, Info:  Time spent this phase (IO): 52.5161 ms (min: 38.7833 ms, max: 114.3578 ms)
+Fri May 03 19:39:02, Info:  Performance since the start: 9.3295 TFLOP/s (rank 0: 596.6719 GFLOP/s , average over ranks: 583.0962 GFLOP/s ) 
+Fri May 03 19:39:02, Info:  Performance since last sync point: 9.3762 TFLOP/s (rank 0: 599.6097 GFLOP/s , average over ranks: 586.0152 GFLOP/s ) 
+Fri May 03 19:39:31, Info:  Writing energy output at time 27.5 
+Fri May 03 19:39:31, Info:  Elastic energy (total, % kinematic, % potential):  1.18271e+16  , 19.7989  , 80.2011 
+Fri May 03 19:39:31, Info:  Total momentum (X, Y, Z): -8.91222e+14  , -1.15995e+15  , -2.21466e+14 
+Fri May 03 19:39:31, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.9141  , 80.0859 
+Fri May 03 19:39:31, Info:  Seismic moment (without plasticity): 1.07398e+20  Mw: 7.284 
+Fri May 03 19:39:31, Info:  Writing energy output at time 27.5 Done. 
+Fri May 03 19:39:31, Info:  Time spent this phase (total): 28.9686 s (min: 28.9630 s, max: 28.9708 s)
+Fri May 03 19:39:31, Info:  Time spent this phase (compute): 28.9685 s (min: 28.9626 s, max: 28.9708 s)
+Fri May 03 19:39:31, Info:  Time spent this phase (IO): 51.4371 ms (min: 38.7699 ms, max: 106.7077 ms)
+Fri May 03 19:39:31, Info:  Performance since the start: 9.3302 TFLOP/s (rank 0: 596.7138 GFLOP/s , average over ranks: 583.1349 GFLOP/s ) 
+Fri May 03 19:39:31, Info:  Performance since last sync point: 9.3638 TFLOP/s (rank 0: 598.9863 GFLOP/s , average over ranks: 585.2346 GFLOP/s ) 
+Fri May 03 19:40:00, Info:  Writing faultoutput at time 28.
+Fri May 03 19:40:00, Info:  Writing faultoutput at time 28. Done.
+Fri May 03 19:40:00, Info:  Writing energy output at time 28 
+Fri May 03 19:40:00, Info:  Elastic energy (total, % kinematic, % potential):  1.17719e+16  , 19.6971  , 80.3029 
+Fri May 03 19:40:00, Info:  Total momentum (X, Y, Z): -1.10716e+15  , -1.57187e+15  , -1.88476e+14 
+Fri May 03 19:40:00, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.8768  , 80.1232 
+Fri May 03 19:40:00, Info:  Seismic moment (without plasticity): 1.07398e+20  Mw: 7.284 
+Fri May 03 19:40:00, Info:  Writing energy output at time 28 Done. 
+Fri May 03 19:40:00, Info:  Time spent this phase (total): 28.9498 s (min: 28.9296 s, max: 28.9669 s)
+Fri May 03 19:40:00, Info:  Time spent this phase (compute): 28.9498 s (min: 28.9296 s, max: 28.9668 s)
+Fri May 03 19:40:00, Info:  Time spent this phase (IO): 51.8669 ms (min: 41.4541 ms, max: 80.8036 ms)
+Fri May 03 19:40:00, Info:  Performance since the start: 9.3309 TFLOP/s (rank 0: 596.7647 GFLOP/s , average over ranks: 583.1790 GFLOP/s ) 
+Fri May 03 19:40:00, Info:  Performance since last sync point: 9.3698 TFLOP/s (rank 0: 599.5786 GFLOP/s , average over ranks: 585.6130 GFLOP/s ) 
+Fri May 03 19:40:29, Info:  Writing energy output at time 28.5 
+Fri May 03 19:40:29, Info:  Elastic energy (total, % kinematic, % potential):  1.17191e+16  , 19.6553  , 80.3447 
+Fri May 03 19:40:29, Info:  Total momentum (X, Y, Z): -1.35181e+15  , -2.03972e+15  , -1.01241e+14 
+Fri May 03 19:40:29, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.8765  , 80.1235 
+Fri May 03 19:40:29, Info:  Seismic moment (without plasticity): 1.07399e+20  Mw: 7.284 
+Fri May 03 19:40:29, Info:  Writing energy output at time 28.5 Done. 
+Fri May 03 19:40:29, Info:  Time spent this phase (total): 28.9358 s (min: 28.9257 s, max: 28.9531 s)
+Fri May 03 19:40:29, Info:  Time spent this phase (compute): 28.9357 s (min: 28.9256 s, max: 28.9531 s)
+Fri May 03 19:40:29, Info:  Time spent this phase (IO): 50.0637 ms (min: 38.7942 ms, max: 100.7751 ms)
+Fri May 03 19:40:29, Info:  Performance since the start: 9.3316 TFLOP/s (rank 0: 596.8088 GFLOP/s , average over ranks: 583.2264 GFLOP/s ) 
+Fri May 03 19:40:29, Info:  Performance since last sync point: 9.3743 TFLOP/s (rank 0: 599.2897 GFLOP/s , average over ranks: 585.8964 GFLOP/s ) 
+Fri May 03 19:40:58, Info:  Writing energy output at time 29 
+Fri May 03 19:40:58, Info:  Elastic energy (total, % kinematic, % potential):  1.1668e+16  , 19.5352  , 80.4648 
+Fri May 03 19:40:58, Info:  Total momentum (X, Y, Z): -1.61812e+15  , -2.60401e+15  , 9.32526e+12 
+Fri May 03 19:40:58, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.93  , 80.07 
+Fri May 03 19:40:58, Info:  Seismic moment (without plasticity): 1.07399e+20  Mw: 7.284 
+Fri May 03 19:40:58, Info:  Writing energy output at time 29 Done. 
+Fri May 03 19:40:58, Info:  Time spent this phase (total): 29.1219 s (min: 29.1062 s, max: 29.1307 s)
+Fri May 03 19:40:58, Info:  Time spent this phase (compute): 29.1219 s (min: 29.1061 s, max: 29.1306 s)
+Fri May 03 19:40:58, Info:  Time spent this phase (IO): 52.6073 ms (min: 38.8161 ms, max: 115.3050 ms)
+Fri May 03 19:40:58, Info:  Performance since the start: 9.3313 TFLOP/s (rank 0: 596.7869 GFLOP/s , average over ranks: 583.2079 GFLOP/s ) 
+Fri May 03 19:40:58, Info:  Performance since last sync point: 9.3144 TFLOP/s (rank 0: 595.5381 GFLOP/s , average over ranks: 582.1522 GFLOP/s ) 
+Fri May 03 19:41:27, Info:  Writing energy output at time 29.5 
+Fri May 03 19:41:27, Info:  Elastic energy (total, % kinematic, % potential):  1.16156e+16  , 19.3304  , 80.6696 
+Fri May 03 19:41:27, Info:  Total momentum (X, Y, Z): -1.89161e+15  , -3.25694e+15  , 1.23533e+14 
+Fri May 03 19:41:27, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 19.9907  , 80.0093 
+Fri May 03 19:41:27, Info:  Seismic moment (without plasticity): 1.07399e+20  Mw: 7.284 
+Fri May 03 19:41:27, Info:  Writing energy output at time 29.5 Done. 
+Fri May 03 19:41:27, Info:  Time spent this phase (total): 29.1615 s (min: 29.1611 s, max: 29.1630 s)
+Fri May 03 19:41:27, Info:  Time spent this phase (compute): 29.1615 s (min: 29.1609 s, max: 29.1630 s)
+Fri May 03 19:41:27, Info:  Time spent this phase (IO): 52.4886 ms (min: 38.7885 ms, max: 114.2655 ms)
+Fri May 03 19:41:27, Info:  Performance since the start: 9.3308 TFLOP/s (rank 0: 596.7550 GFLOP/s , average over ranks: 583.1765 GFLOP/s ) 
+Fri May 03 19:41:27, Info:  Performance since last sync point: 9.3018 TFLOP/s (rank 0: 594.9140 GFLOP/s , average over ranks: 581.3619 GFLOP/s ) 
+Fri May 03 19:41:56, Info:  Writing faultoutput at time 30.
+Fri May 03 19:41:56, Info:  Writing faultoutput at time 30. Done.
+Fri May 03 19:41:56, Info:  Writing free surface at time 30.
+Fri May 03 19:41:56, Info:  Writing free surface at time 30. Done.
+Fri May 03 19:41:56, Info:  Wrote receivers in 5.16e-07 seconds. 
+Fri May 03 19:41:56, Info:  Writing energy output at time 30 
+Fri May 03 19:41:56, Info:  Elastic energy (total, % kinematic, % potential):  1.15613e+16  , 19.1722  , 80.8278 
+Fri May 03 19:41:56, Info:  Total momentum (X, Y, Z): -2.15463e+15  , -3.91406e+15  , 2.27002e+14 
+Fri May 03 19:41:56, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 20.0156  , 79.9844 
+Fri May 03 19:41:56, Info:  Seismic moment (without plasticity): 1.074e+20  Mw: 7.284 
+Fri May 03 19:41:56, Info:  Writing energy output at time 30 Done. 
+Fri May 03 19:41:56, Info:  Time spent this phase (total): 28.9396 s (min: 28.9363 s, max: 28.9460 s)
+Fri May 03 19:41:56, Info:  Time spent this phase (compute): 28.9395 s (min: 28.9363 s, max: 28.9459 s)
+Fri May 03 19:41:56, Info:  Time spent this phase (IO): 56.8960 ms (min: 41.6475 ms, max: 119.2584 ms)
+Fri May 03 19:41:56, Info:  Performance since the start: 9.3315 TFLOP/s (rank 0: 596.8004 GFLOP/s , average over ranks: 583.2204 GFLOP/s ) 
+Fri May 03 19:41:56, Info:  Performance since last sync point: 9.3731 TFLOP/s (rank 0: 599.4906 GFLOP/s , average over ranks: 585.8212 GFLOP/s ) 
+Fri May 03 19:42:25, Info:  Writing energy output at time 30.5 
+Fri May 03 19:42:25, Info:  Elastic energy (total, % kinematic, % potential):  1.1508e+16  , 19.0806  , 80.9194 
+Fri May 03 19:42:25, Info:  Total momentum (X, Y, Z): -2.39233e+15  , -4.45712e+15  , 3.08776e+14 
+Fri May 03 19:42:25, Info:  Frictional work (total, % static, % radiated):  3.49305e+16  , 20.0144  , 79.9856 
+Fri May 03 19:42:25, Info:  Seismic moment (without plasticity): 1.074e+20  Mw: 7.284 
+Fri May 03 19:42:25, Info:  Writing energy output at time 30.5 Done. 
+Fri May 03 19:42:25, Info:  Time spent this phase (total): 29.0416 s (min: 29.0349 s, max: 29.0438 s)
+Fri May 03 19:42:25, Info:  Time spent this phase (compute): 29.0415 s (min: 29.0349 s, max: 29.0437 s)
+Fri May 03 19:42:25, Info:  Time spent this phase (IO): 53.1560 ms (min: 38.8564 ms, max: 116.0310 ms)
+Fri May 03 19:42:25, Info:  Performance since the start: 9.3317 TFLOP/s (rank 0: 596.8091 GFLOP/s , average over ranks: 583.2292 GFLOP/s ) 
+Fri May 03 19:42:25, Info:  Performance since last sync point: 9.3402 TFLOP/s (rank 0: 597.3334 GFLOP/s , average over ranks: 583.7614 GFLOP/s ) 

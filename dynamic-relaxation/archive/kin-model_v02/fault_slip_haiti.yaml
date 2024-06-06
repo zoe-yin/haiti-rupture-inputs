@@ -1,0 +1,70 @@
+!Switch
+[strike_slip, dip_slip]: !EvalModel
+    parameters: [strike_slip, dip_slip]
+    model: !Switch
+        [strike_slip, dip_slip]: !Any
+          components:
+            - !GroupFilter
+               groups: 65
+               components: !AffineMap
+                    matrix:
+                      ua: [-0.9961096218970757, -0.08812276189535079, 0.0]
+                      ub: [-0.03584275635188306, -0.4051542837459216, 0.9135454576426008]
+                    translation:
+                      ua: 872776.2538738265
+                      ub: 895434.7527014565
+                    components: !Any
+                      - !ASAGI
+                          file: ../asagi-files/step700_smooth7/fault1_ss_ds_ASAGI.nc
+                          parameters: [strike_slip, dip_slip]
+                          var: datas
+                          interpolation: linear
+                      - !ConstantMap
+                        map:
+                          strike_slip: 0.0
+                          dip_slip:    0.0
+            - !GroupFilter
+               groups: 66
+               components: !AffineMap
+                    matrix:
+                      ua: [-0.9961096218970757, -0.08812276189535079, 0.0]
+                      ub: [-0.03584275635188306, -0.4051542837459216, 0.9135454576426008]
+                    translation:
+                      ua: 872776.2538738265
+                      ub: 895434.7527014565
+                    components: !Any
+                      - !ASAGI
+                          file: ../asagi-files/step700_smooth7/fault2_ss_ds_ASAGI.nc
+                          parameters: [strike_slip, dip_slip]
+                          var: data
+                          interpolation: linear
+                      - !ConstantMap
+                        map:
+                          strike_slip: 0.0
+                          dip_slip:    0.0
+            - !GroupFilter
+               groups: [67,68,69,70]
+               components: !ConstantMap
+                    map:
+                      strike_slip: 0.0 
+                      dip_slip:    0.0 
+    components: !FunctionMap
+       map:
+          #Note the minus on strike_slip to acknowledge the different convention of SeisSol (T_s>0 means right-lateral)
+          strike_slip: return -strike_slip;
+          dip_slip: return dip_slip;
+[acc_time, effective_rise_time,rupture_onset,tau_S,tau_R]: !EvalModel
+    parameters: [acc_time, effective_rise_time, rupture_onset]
+    model: !ConstantMap
+         map:
+            acc_time: 0.1
+            effective_rise_time: 1.0
+            rupture_onset: 0.0
+    components: !FunctionMap
+       map:
+         acc_time: return acc_time;
+         effective_rise_time: return effective_rise_time;
+         rupture_onset: return rupture_onset;
+         tau_S: return acc_time/1.27;
+         tau_R: return effective_rise_time - 2.*acc_time/1.27;
+        
