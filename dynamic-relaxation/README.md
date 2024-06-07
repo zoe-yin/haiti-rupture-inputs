@@ -1,2 +1,3 @@
-# haiti-2021_dynamic-rupture-model
- Code used to run a dynamic rupture model of the 2021 M7.2 Haiti earthquake using SeisSol
+This directory contains runs using the dynamic relaxation method. 
+The outputs of these runs should be written to `$SCRATCH/dynamic-relaxation-outputs` (`/hppfs/scratch/01/di35poq/dynamic-relaxation-outputs`)
+Important runs are then saved to `$HOME/outputs_save`
