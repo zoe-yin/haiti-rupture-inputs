@@ -13,7 +13,7 @@ BC_of = 1                                      ! enable absorbing boundaries
 /
 
 &DynamicRupture
-FL = 16                                      ! Friction law, 33 is Yoffe, 34 is Gaussian
+FL = 33                                        ! Friction law, 33 is Yoffe, 34 is Gaussian
 !0: none, 16:LSW, 103: RS with strong velocity weakening
 !yaml file defining spatial dependance of fault properties
 ModelFileName = 'fault_slip_haiti.yaml'
@@ -62,9 +62,9 @@ ClusteredLTS = 2                               ! 1 for Global time stepping, 2,3
 &Output
 FaultOutputFlag = 1                            ! DR output (add this line only if DR is active)
 OutputFile = '/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-relaxation-outputs/step500_smooth7_volumetric/output'  
-Format = 10                                     ! Format (10= no output, 6=hdf5 output)
+Format = 6                                     ! Format (10= no output, 6=hdf5 output)
 !             |stress     |vel  
-iOutputMask = 0 0 0 0 0 0 1 1 1
+iOutputMask = 1 1 1 1 1 1 1 1 1
 !                 |strain     |eta
 !iPlasticityMask = 0 0 0 0 0 0 1
 TimeInterval =  10.                           ! Index of printed info at time
