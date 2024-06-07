@@ -1,0 +1,64 @@
+!Switch
+[Tnuc_n, Tnuc_s, Tnuc_d, cohesion]: !ConstantMap
+  map:
+    Tnuc_n: 0
+    Tnuc_s: 0
+    Tnuc_d: 0
+    cohesion: 2e6
+
+[mu_s]: !LayeredModel
+  map: !AffineMap
+    matrix: 
+      z0: [0.0, 0.0, 1.0]
+    translation:
+      z0: 0
+  interpolation: linear 
+  parameters: [mu_s]
+  nodes:
+    20e3: [0.6]
+    -7e3: [0.6]
+    -11e3: [0.6]
+    -100e3: [0.6]
+
+[mu_d]: !LayeredModel
+  map: !AffineMap
+    matrix:
+      z0: [0.0, 0.0, 1.0]
+    translation:
+      z0: 0
+  interpolation: linear
+  parameters: [mu_d]
+  nodes:
+    20e3: [0.1]
+    -7e3: [0.1]
+    -11e3: [0.1]
+    -45e3: [0.1]
+    -50e3: [0.6]
+    -55e3: [1.0]
+    -20e4: [1.0]
+
+[d_c]: !ConstantMap
+# D_c in r_crit0 = 1.0; D_c out of r_crit = 2; linear increase between r_crit0 - r_crit
+# D_c is large for Tohoku. (Typically .1 to 0.5 for M7-8) -- chekc jia et al., 
+  map:
+    d_c: 0.3
+
+[forced_rupture_time]: !FunctionMap
+# Tohoku hypocenter: -18440.72282378, -100744.10896419, -28 km
+# USGS Haiti M7.2 hypocenter (UTM): 660316.8644347321, 2038874.3572128506, -10 km
+# I used Vs published in Douilly et al., 2015
+# r_crit comes from JGR Ramos 2021 paper, (Rupture initialtion )
+  map:
+    forced_rupture_time: |
+      r = sqrt(pow(x+660316.86, 2.0) + pow(y+2038874.3572128506, 2.0));
+      r_crit =10000.0;
+      Vs = 3100.0;
+      if (r <= r_crit) {
+        return r/(0.7*Vs)+(0.081.0*r_crit/(0.7.0*Vs))*(1.0/(1.0-pow(r/r_crit, 2.0))-1.0);
+      }
+      return 1000000000.0;
+
+
+[s_xx, s_yy, s_zz, s_xy, s_xz, s_yz]: !Include initial_stress_haiti.yaml
+
+#[s_xx, s_yy, s_zz, s_xy, s_xz, s_yz]: !Include combined_initial_stress.yaml
