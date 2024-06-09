@@ -1,0 +1,27 @@
+!EvalModel
+parameters: [sigma_xx, sigma_yy, sigma_zz, sigma_xy, sigma_xz, sigma_yz]
+model: !Switch
+  [sigma_xx, sigma_yy, sigma_zz, sigma_xy, sigma_xz, sigma_yz]: !Any
+     components: !Any
+       - !ASAGI
+           file: /hppfs/work/pn49ha/di35poq/dynamic-relaxation-outputs/step500_smooth7_volumetric/gridded_asagi_0.nc
+           parameters: [sigma_xx, sigma_yy, sigma_zz, sigma_xy, sigma_xz, sigma_yz]
+           var: data
+           interpolation: linear
+       - !ConstantMap
+         map:
+           sigma_xx: 0.0
+           sigma_yy: 0.0
+           sigma_zz: 0.0
+           sigma_xy: 0.0
+           sigma_yz: 0.0
+           sigma_xz: 0.0
+# deviatoric version
+components: !FunctionMap
+  map:
+    s_xx: return -1*(sigma_xx - (sigma_xx+sigma_yy+sigma_zz)/3);
+    s_yy: return -1*(sigma_yy - (sigma_xx+sigma_yy+sigma_zz)/3);
+    s_zz: return -1*(sigma_zz - (sigma_xx+sigma_yy+sigma_zz)/3);
+    s_xy: return -1*(sigma_xy);
+    s_xz: return -1*(sigma_xz);
+    s_yz: return -1*(sigma_yz);
