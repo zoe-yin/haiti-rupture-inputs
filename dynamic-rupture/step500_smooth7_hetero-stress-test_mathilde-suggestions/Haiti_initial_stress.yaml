@@ -1,14 +1,7 @@
-!EvalModel
-parameters: [Tnuc_n, Tnuc_s, Tnuc_d, Omega, sig_zz, b_xx, b_yy, b_zz, b_xy, b_yz, b_xz, bc_xx, bc_yy, bc_zz, bc_xy, bc_yz, bc_xz]
+!EvalModel  # this indicates that we want to evaluate the parameters below before calculating the sxx, sxy, syy components
+parameters: [Omega, sig_zz, b_xx, b_yy, b_zz, b_xy, b_yz, b_xz, bc_xx, bc_yy, bc_zz, bc_xy, bc_yz, bc_xz]
 model: !Switch
-## Test adding the text below
-  [Tnuc_n, Tnuc_s, Tnuc_d]: !ConstantMap
-    map:
-      Tnuc_n: 0
-      Tnuc_s: 0
-      Tnuc_d: 0
-###
-  [Omega]: !LuaMap
+  [Omega]: !LuaMap  # Depth dependent stress accumulation 
         returns: [Omega]
         function: |
          function f (x)
@@ -30,7 +23,7 @@ model: !Switch
            end
   [b_xx, b_yy, b_zz, b_xy, b_yz, b_xz]: !EvalModel
     parameters: [sig_zz,S, SH_max]
-    model: !Switch
+    model: !Switch  
       [sig_zz]: !Include Haiti_sig_zz.yaml
       [SH_max]: !Any
           components:
