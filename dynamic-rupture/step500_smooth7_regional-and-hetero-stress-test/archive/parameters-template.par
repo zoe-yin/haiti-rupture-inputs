@@ -1,6 +1,6 @@
 &equations
 !yaml file defining spatial dependance of material properties
-MaterialFileName = '../haiti_material_properties.yaml'
+MaterialFileName = '../../material-properties/haiti_material_properties_douilly-2021.yaml'
 /
 
 &IniCondition
@@ -13,10 +13,10 @@ BC_of = 1                                      ! enable absorbing boundaries
 /
 
 &DynamicRupture
-FL = 16                                        ! Friction law, 33 is Yoffe, 34 is Gaussian
+FL = 16                                      ! Friction law, 33 is Yoffe, 34 is Gaussian
 !0: none, 16:LSW, 103: RS with strong velocity weakening
 !yaml file defining spatial dependance of fault properties
-ModelFileName = 'dynamic_rupture_haiti.yaml'
+ModelFileName = 'Haiti_fault.yaml'
 
 !reference vector for defining strike and dip direction ! @todo: need to understand/check this
 refPointMethod = 1
@@ -35,7 +35,7 @@ SlipRateOutputType=0        ! 0: (smoother) slip rate output evaluated from the 
 ! parameterize paraview file output
 &Elementwise
 printIntervalCriterion = 2                     ! 1=iteration, 2=time
-printtimeinterval_sec = 2.00                   ! Time interval at which output will be written
+printtimeinterval_sec = 0.5                   ! Time interval at which output will be written
 OutputMask = 1 1 0 0 1 1 1 1 1 1 0             ! turn on and off fault outputs, see fault-output page, linked above, @todo: would be good to review this and the next two lines
 refinement_strategy = 2                         ! refinement_strategy = 2 divides each triangle into 4 triangles.
 refinement = 0                                  ! refinement = 1 subdivides each triangle into 3 or 4 subtriangles, depending on the refinement_strategy. A higher refinement value will further subdivide each subtriangle.
@@ -48,7 +48,7 @@ refinement = 0                                  ! refinement = 1 subdivides each
 /
             
 &MeshNml
-MeshFile = '../../mesh/mesh_v05/Haiti_v05_lowres'
+MeshFile = '../../mesh/Haiti_v05_lowres'
 meshgenerator = 'PUML'                         ! Name of meshgenerator (Gambit3D-fast, Netcdf or PUML)
 /
 
@@ -61,7 +61,7 @@ ClusteredLTS = 2                               ! 1 for Global time stepping, 2,3
 
 &Output
 FaultOutputFlag = 1                            ! DR output (add this line only if DR is active)
-OutputFile = '/hppfs/work/pn49ha/di35poq/dynamic-rupture-outputs/step500_smooth7_dynamic-test/output'  !@todo: is there any better way to set this? 
+OutputFile = OUTPUTFILE
 Format = 10                                     ! Format (10= no output, 6=hdf5 output)
 !             |stress     |vel  
 iOutputMask = 0 0 0 0 0 0 1 1 1
@@ -92,7 +92,7 @@ ReceiverOutputInterval = 10.0
 /
 
 &AbortCriteria
-EndTime = 5.0
+EndTime = 2.0
 /
 
 &Analysis

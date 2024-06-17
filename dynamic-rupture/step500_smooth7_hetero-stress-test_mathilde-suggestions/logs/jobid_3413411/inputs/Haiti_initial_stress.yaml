@@ -25,17 +25,17 @@ model: !Switch
     parameters: [sig_zz,S, SH_max]
     model: !Switch  
       [sig_zz]: !Include Haiti_sig_zz.yaml
-      [SH_max]: !Any  # This is the line throwing the error
+      [SH_max]: !Any
           components:
             - !GroupFilter
-              groups: [65,66,67,68,69,70]  # Might want to update this to all faults? 
+              groups: [65]
               components: !ConstantMap
                 map:
-                    SH_max:  60.0 # Update SH_max with the value that make sense for Haiti
+                    SH_max:  -10.0 # Update SH_max with the value that make sense for Haiti
       [S]: !Any
           components:
             - !GroupFilter
-              groups: [65, 66] # Change the fault tags here !
+              groups: [65] # Change the fault tags here !
               components: !LuaMap
                 returns: [S]
                 function: |
@@ -46,7 +46,7 @@ model: !Switch
                   }
                   end
             - !GroupFilter
-              groups: [67,68,69,70] # Change the fault tags here !
+              groups: [69] # Change the fault tags here !
               components: !LuaMap
                 returns: [S]
                 function: |

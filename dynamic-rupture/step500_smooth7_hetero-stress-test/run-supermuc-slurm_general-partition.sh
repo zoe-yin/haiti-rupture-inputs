@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Job Name and Files (also --job-name)
-#SBATCH -J step500_smooth7_dynamic-rupture-trial
+#SBATCH -J step500_smooth7_regional-and-hetero-stress-general
 
 #Output and error (also --output, --error):
-#SBATCH -o ./slurm-outputs/%j.%x.out
-#SBATCH -e ./slurm-outputs/%j.%x.err
+#SBATCH -o ./%j.%x.out
+#SBATCH -e ./%j.%x.err
 
 #Initial working directory:
 #SBATCH --chdir=./
@@ -20,9 +20,9 @@
 #SBATCH --no-requeue
 
 #Number of nodes and MPI tasks per node:
-#SBATCH --partition=test
-#SBATCH --nodes=16
-#SBATCH --time=00:30:00
+#SBATCH --partition=general
+#SBATCH --nodes=24
+#SBATCH --time=01:00:00
 
 #SBATCH --ntasks-per-node=1
 #EAR may impact code performance
@@ -51,4 +51,21 @@ source /etc/profile.d/modules.sh
 echo 'num_nodes:' $SLURM_JOB_NUM_NODES 'ntasks:' $SLURM_NTASKS 'cpus_per_task:' $SLURM_CPUS_PER_TASK >& job.log
 ulimit -Ss 2097152
 
-srun /dss/dsshome1/01/di35poq/SeisSol/build-release/SeisSol_Release_dskx_4_elastic parameters_spontaneous_lowres_step500-smooth7_init-conditions.par
+# Change parameter file to set output to job nubmer
+# OUTPUTFILE="/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/jobid_${SLURM_JOB_ID}"
+# sed "s|OUTPUTFILE|${OUTPUTFILE}/output|" parameters-template.par > parameters_${SLURM_JOB_ID}.par
+
+# Run SeisSol
+SEISSOL=/dss/dsshome1/01/di35poq/SeisSol/build-release/SeisSol_Release_dskx_4_elastic
+PARAMETERS=parameters.par
+srun $SEISSOL $PARAMETERS
+
+# generate a log directory and copy inputs to it
+./generate-job-log.sh $SLURM_JOB_ID $PARAMETERS
+
+OUTDIR='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs'
+# # Extract timesteps for relevant variables
+# seissol_output_extractor ${OUTDIR}/outputs_tmp/output-fault.xdmf --time "i1:" --variable ASl Ts0 Td0 T_s T_d Sld Sls --add2prefix "_extracted"
+
+# move outputs to a job-id-named folder
+mv ${OUTDIR}/outputs_tmp ${OUTDIR}/jobid_${SLURM_JOB_ID}
