@@ -66,8 +66,6 @@ srun $SEISSOL $PARAMETERS
 OUTDIR='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs'
 # # Extract timesteps for relevant variables
 # seissol_output_extractor ${OUTDIR}/outputs_tmp/output-fault.xdmf --time "i1:" --variable ASl Ts0 Td0 T_s T_d Sld Sls --add2prefix "_extracted"
-pushd ${OUTDIR}/outputs_tmp
-seissol_output_extractor output-fault.xdmf --time "i1:" --variable ASl Ts0 Td0 T_s T_d Sld Sls --add2prefix "_extracted"
-popd
+
 # move outputs to a job-id-named folder
 mv ${OUTDIR}/outputs_tmp ${OUTDIR}/jobid_${SLURM_JOB_ID}
