@@ -13,17 +13,16 @@ BC_of = 1                                      ! enable absorbing boundaries
 /
 
 &DynamicRupture
-FL = 33                                        ! Friction law, 33 is Yoffe, 34 is Gaussian
+FL = 16                                      ! Friction law, 33 is Yoffe, 34 is Gaussian
 !0: none, 16:LSW, 103: RS with strong velocity weakening
 !yaml file defining spatial dependance of fault properties
-ModelFileName = 'fault_slip_haiti.yaml'
+ModelFileName = 'Haiti_fault.yaml'
 
 !reference vector for defining strike and dip direction ! @todo: need to understand/check this
 refPointMethod = 1
 XRef = -630.0e3 
 YRef = 0.0
 ZRef = 0.0
-
 
 !see: https://seissol.readthedocs.io/en/latest/fault-output.html
 OutputPointType = 4                            ! Type (0: no output, 3: ascii file, 4: paraview file, 5: 3+4)
@@ -48,7 +47,7 @@ refinement = 0                                  ! refinement = 1 subdivides each
 /
             
 &MeshNml
-MeshFile = '/dss/dsshome1/01/di35poq/mesh/mesh_v07/Haiti_v07_lowres'
+MeshFile = '/dss/dsshome1/01/di35poq/mesh/mesh_v06/Haiti_v06_lowres'
 meshgenerator = 'PUML'                         ! Name of meshgenerator (Gambit3D-fast, Netcdf or PUML)
 /
 
@@ -61,10 +60,10 @@ ClusteredLTS = 2                               ! 1 for Global time stepping, 2,3
 
 &Output
 FaultOutputFlag = 1                            ! DR output (add this line only if DR is active)
-OutputFile='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-relaxation-outputs/outputs_tmp/output'
-Format = 6                                     ! Format (10= no output, 6=hdf5 output)
+OutputFile='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/outputs_tmp/output'  
+Format = 10                                     ! Format (10= no output, 6=hdf5 output)
 !             |stress     |vel  
-iOutputMask = 1 1 1 1 1 1 1 1 1
+iOutputMask = 0 0 0 0 0 0 1 1 1
 !                 |strain     |eta
 !iPlasticityMask = 0 0 0 0 0 0 1
 TimeInterval =  10.                           ! Index of printed info at time
@@ -92,7 +91,7 @@ ReceiverOutputInterval = 10.0
 /
 
 &AbortCriteria
-EndTime = 90.0
+EndTime = 15.0
 /
 
 &Analysis

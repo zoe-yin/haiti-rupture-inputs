@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Job Name and Files (also --job-name)
-#SBATCH -J dynamic-relaxation
+#SBATCH -J step500_smooth7_volumetric
 
 #Output and error (also --output, --error):
 #SBATCH -o ./%j.%x.out

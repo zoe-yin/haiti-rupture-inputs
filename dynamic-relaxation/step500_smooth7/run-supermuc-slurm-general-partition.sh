@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Job Name and Files (also --job-name)
-#SBATCH -J dynamic-relaxation
+#SBATCH -J dynamic-relaxation-general-partition
 
 #Output and error (also --output, --error):
 #SBATCH -o ./%j.%x.out
@@ -20,9 +20,9 @@
 #SBATCH --no-requeue
 
 #Number of nodes and MPI tasks per node:
-#SBATCH --partition=test
-#SBATCH --nodes=16
-#SBATCH --time=00:30:00
+#SBATCH --partition=general
+#SBATCH --nodes=24
+#SBATCH --time=02:00:00
 
 #SBATCH --ntasks-per-node=1
 #EAR may impact code performance
