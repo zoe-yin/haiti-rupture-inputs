@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Job Name and Files (also --job-name)
-#SBATCH -J step500_smooth7_regional-and-hetero-stress-general
+#SBATCH -J dynamic-relaxation
 
 #Output and error (also --output, --error):
 #SBATCH -o ./%j.%x.out
@@ -20,9 +20,9 @@
 #SBATCH --no-requeue
 
 #Number of nodes and MPI tasks per node:
-#SBATCH --partition=general
-#SBATCH --nodes=24
-#SBATCH --time=01:00:00
+#SBATCH --partition=test
+#SBATCH --nodes=16
+#SBATCH --time=00:30:00
 
 #SBATCH --ntasks-per-node=1
 #EAR may impact code performance
@@ -51,10 +51,6 @@ source /etc/profile.d/modules.sh
 echo 'num_nodes:' $SLURM_JOB_NUM_NODES 'ntasks:' $SLURM_NTASKS 'cpus_per_task:' $SLURM_CPUS_PER_TASK >& job.log
 ulimit -Ss 2097152
 
-# Change parameter file to set output to job nubmer
-# OUTPUTFILE="/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/jobid_${SLURM_JOB_ID}"
-# sed "s|OUTPUTFILE|${OUTPUTFILE}/output|" parameters-template.par > parameters_${SLURM_JOB_ID}.par
-
 # Run SeisSol
 SEISSOL=/dss/dsshome1/01/di35poq/SeisSol/build-release/SeisSol_Release_dskx_4_elastic
 PARAMETERS=parameters.par
@@ -63,12 +59,13 @@ srun $SEISSOL $PARAMETERS
 # generate a log directory and copy inputs to it
 ./generate-job-log.sh $SLURM_JOB_ID $PARAMETERS
 
-OUTDIR='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs'
-# # Extract timesteps for relevant variables
-# seissol_output_extractor ${OUTDIR}/outputs_tmp/output-fault.xdmf --time "i1:" --variable ASl Ts0 Td0 T_s T_d Sld Sls --add2prefix "_extracted"
-pushd ${OUTDIR}/outputs_tmp
-seissol_output_extractor output-fault.xdmf --time "i1::2" --variable ASl T_s T_d Ts0 Td0 --add2prefix "_extracted"
-seissol_output_extractor output-surface.xdmf --time "i1::2" --variable u1 u2 u3 --add2prefix "_extracted"
+
+## Post processing jobs
+OUTDIR='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-relaxation-outputs'
+pushd ${OUTDIR}/outputs_tmp 
+seissol_output_extractor output-fault.xdmf --time "i1::2" --variable ASl Ts0 Td0 --add2prefix "_extracted"
+extractDataFromUnstructuredOutput.py --Data sigma_xx sigma_yy sigma_zz sigma_xy sigma_xz sigma_yz --time 20 output.xdmf
+interpolate_seissol_data_to_grid.py --box "100 600000 700000 2020000 2060000 -40000 0" output_resampled.xdmf --Data sigma_xx sigma_yy sigma_zz sigma_xy sigma_xz sigma_yz --gaussian_smoothing
 popd
 
 # move outputs to a job-id-named folder
