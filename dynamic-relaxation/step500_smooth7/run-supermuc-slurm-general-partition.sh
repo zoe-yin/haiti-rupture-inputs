@@ -63,8 +63,12 @@ srun $SEISSOL $PARAMETERS
 ## Post processing jobs
 OUTDIR='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-relaxation-outputs'
 pushd ${OUTDIR}/outputs_tmp 
-seissol_output_extractor output-fault.xdmf --time "i1::2" --variable ASl Ts0 Td0 --add2prefix "_extracted"
-extractDataFromUnstructuredOutput.py --Data sigma_xx sigma_yy sigma_zz sigma_xy sigma_xz sigma_yz --time 20 output.xdmf
+seissol_output_extractor output-fault.xdmf --time "i1::2" --variable ASl T_s T_d Ts0 Td0 --add2prefix "_extracted"
+seissol_output_extractor output-surface.xdmf --time "i1::2" --variable u1 u2 u3 --add2prefix "_extracted"
+
+# Extract the volumetric stress outputs
+extractDataFromUnstructuredOutput.py --Data sigma_xx sigma_yy sigma_zz sigma_xy sigma_xz sigma_yz --time 90 output.xdmf
+# make the ASAGI 3-D file with stress conditions
 interpolate_seissol_data_to_grid.py --box "100 600000 700000 2020000 2060000 -40000 0" output_resampled.xdmf --Data sigma_xx sigma_yy sigma_zz sigma_xy sigma_xz sigma_yz --gaussian_smoothing
 popd
 
