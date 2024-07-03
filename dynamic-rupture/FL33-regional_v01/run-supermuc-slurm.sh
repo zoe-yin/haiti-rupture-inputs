@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Job Name and Files (also --job-name)
-#SBATCH -J andersonian-stress-test
+#SBATCH -J FL33-regional_v01
 
 #Output and error (also --output, --error):
 #SBATCH -o ./%j.%x.out
@@ -67,8 +67,9 @@ OUTDIR='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs'
 # # Extract timesteps for relevant variables
 # seissol_output_extractor ${OUTDIR}/outputs_tmp/output-fault.xdmf --time "i1:" --variable ASl Ts0 Td0 T_s T_d Sld Sls --add2prefix "_extracted"
 pushd ${OUTDIR}/outputs_tmp
-seissol_output_extractor output-fault.xdmf --time "i1:" --variable ASl Ts0 Td0 T_s T_d --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
+
+seissol_output_extractor output-fault.xdmf --time "i1:" --variable ASl Sls Sld Ts0 Td0 Pn0 T_s T_d P_n Mud  --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
 seissol_output_extractor output-surface.xdmf --time "i1::2" --variable u1 u2 u3 --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
 popd
 # move outputs to a job-id-named folder
-mv ${OUTDIR}/outputs_tmp ${OUTDIR}/jobid_${SLURM_JOB_ID}_andersonian-stress
+mv ${OUTDIR}/outputs_tmp ${OUTDIR}/jobid_${SLURM_JOB_ID}
