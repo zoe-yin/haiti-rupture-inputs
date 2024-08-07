@@ -1,0 +1,16 @@
+!LuaMap
+  returns: [sig_zz]
+  function: |
+     function f (x)
+      Pf = 0.34
+      z = x["z"]
+      taper_depth = -10000
+      min_sig_zz = 2670.0*Pf*9.8*taper_depth)
+      sig_zz = math.max(min_siz_zz, 2670.0*Pf*9.8*math.min(-200.0,z))
+      return {
+        sig_zz = sig_zz
+      }
+      end
+# Where Pf is pore fluid pressure (See Madden et al., 2022)
+# Higher Pf generally decreases slip amplitude
+# taper_depth is the depth below which we want normal stress to mirror lithostatic stress

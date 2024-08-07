@@ -1,0 +1,48 @@
+!Switch
+[mu_s, mu_d, Tnuc_n, Tnuc_s, Tnuc_d]: !ConstantMap
+  map:
+    mu_s: 0.4
+    mu_d: 0.1
+    Tnuc_n: 0
+    Tnuc_s: 0
+    Tnuc_d: 0
+
+# [d_c]: !FunctionMap
+# # D_c in r_crit0 = 1.0; D_c out of r_crit = 2; linear increase between r_crit0 - r_crit
+#   map:
+#     d_c:
+#       r = sqrt(pow(x+18440.7, 2.0) + pow(y+100744.1, 2.0));
+#       r_crit0 = 10000;
+#       r_crit = 20000;
+#       alpha = max(0.0, min(1.0, (r-r_crit0)/r_crit));
+#       return 1.0 + 1*alpha;
+
+[forced_rupture_time, d_c]: !Include Haiti_forced_rupture_time.yaml
+[cohesion]: !LuaMap # Below zIncreasingCohesion (6km depth), cohesion is constant at -0.5e6
+# Above 6000 m depth, cohesion increases (gets more negative) linearly. See example at eof.
+  returns: [cohesion]
+  function: |
+   function f (x)
+    z = x["z"]
+    cohesion = -0.5e6
+    zIncreasingCohesion = 6000.0
+    if (z >= -zIncreasingCohesion) then
+      cohesion = cohesion - 1.0e6 * (z+zIncreasingCohesion)/zIncreasingCohesion;
+    end
+    return {
+      cohesion = cohesion
+    }
+    end
+[s_xx, s_yy, s_zz, s_xy, s_yz, s_xz]: !Include Haiti_initial_stress.yaml
+
+# if z = -5000, then we do trigger the if statement (z >= -zIncreasingCohesion)
+# within the if statement we evaluate cohesion = -0.5e6 - 1.0e6 * (-5000 + 6000)/6000
+# cohesion =~ -.67e6 
+
+# if z = -1000, then we do trigger the if statement (z >= -zIncreasingCohesion)
+# within the if statement we evaluate cohesion = -0.5e6 - 1.0e6 * (-1000 + 6000)/6000
+# cohesion =~ -1.33e6
+
+# if z = 0, then we do trigger the if statement (z >= -zIncreasingCohesion)
+# within the if statement we evaluate cohesion = -0.5e6 - 1.0e6 * (0 + 6000)/6000
+# cohesion =~ -1.5e6

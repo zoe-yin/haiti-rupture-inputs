@@ -1,0 +1,13 @@
+!LuaMap
+  returns: [sig_zz]
+  function: |
+     function f (x)
+      Pf = 0.34
+      z = x["z"]
+      sig_zz = math.max(-100e6, 2670.0*Pf*9.8*math.min(-200.0,z))
+      return {
+        sig_zz = sig_zz
+      }
+      end
+# Where Pf is pore fluid pressure (See Madden et al., 2022)
+# Higher Pf generally decreases slip amplitude
