@@ -1,0 +1,18 @@
+!LuaMap
+  returns: [sig_zz]
+  function: |
+     function f (x)
+      Pf = 0.4
+      z = x["z"]
+      taper_depth = -100000
+      min_sig_zz = 2670.0*Pf*9.8*taper_depth
+      sig_zz = math.max(min_sig_zz, 2670.0*Pf*9.8*math.min(200.0,z))
+      return {
+        sig_zz = sig_zz
+      }
+      end
+
+# Where Pf is pore fluid pressure ratio (See Madden et al., 2022)
+# Higher Pf generally decreases slip amplitude
+# taper_depth is the depth below which normal stresses are constant
+# min_sig_zz is the calculated normal stress which the function remains at below taper_depth
