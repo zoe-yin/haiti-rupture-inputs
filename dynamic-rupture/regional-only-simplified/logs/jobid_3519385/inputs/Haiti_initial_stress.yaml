@@ -11,7 +11,7 @@ model: !Switch
               groups: [65,66,67,68,69,70]  
               components: !ConstantMap
                 map:
-                    SH_max:  60.0 # Update SH_max with the value that make sense for Haiti
+                    SH_max:  62.0 # Update SH_max with the value that make sense for Haiti
       [S]: !Any
           components:
             - !GroupFilter
@@ -38,11 +38,11 @@ model: !Switch
                   end                 
     components: !AndersonianStress
       constants:
-        mu_d:      0.2
-        mu_s:      0.6
+        mu_d:      0.14
+        mu_s:      0.5
         cohesion:  0.0
-        s2ratio: 0.0  # Pure transpressional, s2ratio = (s2-s3)/(s1-s3) where s1 > s2 > se are the pricipal stresses
-        S_v: 2  # Strike-slip faulting, vertical principal stress is the intermediate compressive stress
+        s2ratio: 0.0  # pure strike-slip faulting (no transtentinal or transpressional regime)
+        S_v: 2  # Strike-slip faulting
   [sig_zz]: !Include Haiti_sig_zz.yaml 
 
 components: !LuaMap
