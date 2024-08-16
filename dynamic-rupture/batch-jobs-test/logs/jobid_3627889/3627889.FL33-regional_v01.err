@@ -1,0 +1,48 @@
+Thu Aug 15 01:50:46, Warn:  Output directory does not exist yet. We therefore create it now. 
+terminate called after throwing an instance of 'std::filesystem::__cxx11::filesystem_error'
+  what():  filesystem error: cannot create directory: No such file or directory ['/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/test/jobid_3627889']
+srun: error: i02r03c03s05: task 0: Aborted (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=3627889.0
+srun: error: i02r06c03s08: task 12: Terminated
+srun: error: i02r06c02s01: task 8: Terminated
+srun: error: i02r06c01s12: task 7: Terminated
+srun: error: i02r06c01s10: task 5: Terminated
+srun: error: i02r06c03s07: task 11: Terminated
+srun: error: i02r06c01s09: task 4: Terminated
+srun: error: i02r06c02s02: task 9: Terminated
+srun: error: i02r06c01s07: task 2: Terminated
+srun: error: i02r06c03s11: task 15: Terminated
+srun: error: i02r06c03s10: task 14: Terminated
+srun: error: i02r06c03s09: task 13: Terminated
+srun: error: i02r06c03s06: task 10: Terminated
+srun: error: i02r06c01s08: task 3: Terminated
+srun: error: i02r06c01s06: task 1: Terminated
+srun: error: i02r06c01s11: task 6: Terminated
+srun: Force Terminated StepId=3627889.0
+/var/spool/slurm/job3627889/slurm_script: line 82: pushd: /hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/test/jobid_3627889: No such file or directory
+Traceback (most recent call last):
+  File "/dss/dsshome1/01/di35poq/.local/bin/seissol_output_extractor", line 8, in <module>
+    sys.exit(main())
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/seissolxdmfwriter/seissol_output_extractor.py", line 143, in main
+    sx = SeissolxdmfExtended(args.xdmfFilename)
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/seissolxdmf/seissolxdmf.py", line 14, in __init__
+    with open (xdmfFilename, "r") as fid:
+FileNotFoundError: [Errno 2] No such file or directory: 'output-fault.xdmf'
+Traceback (most recent call last):
+  File "/dss/dsshome1/01/di35poq/.local/bin/seissol_output_extractor", line 8, in <module>
+    sys.exit(main())
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/seissolxdmfwriter/seissol_output_extractor.py", line 143, in main
+    sx = SeissolxdmfExtended(args.xdmfFilename)
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/seissolxdmf/seissolxdmf.py", line 14, in __init__
+    with open (xdmfFilename, "r") as fid:
+FileNotFoundError: [Errno 2] No such file or directory: 'output-surface.xdmf'
+/var/spool/slurm/job3627889/slurm_script: line 89: popd: directory stack empty
+cp: cannot create directory '/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/test/jobid_3627889/logs': No such file or directory
+Traceback (most recent call last):
+  File "/dss/dsshome1/01/di35poq/soft/calc-moment-rate_R_supermuc.py", line 211, in <module>
+    generateRMoment(jobid_list)
+  File "/dss/dsshome1/01/di35poq/soft/calc-moment-rate_R_supermuc.py", line 87, in generateRMoment
+    xdmfFilename, momentCsvFile = find_xdmffile_wahweap(jobid)
+  File "/dss/dsshome1/01/di35poq/soft/calc-moment-rate_R_supermuc.py", line 37, in find_xdmffile_wahweap
+    momentCsvFile = glob.glob(datadir + '*/jobid_'+jobid+'*/output-energy.csv')[0]
+IndexError: list index out of range

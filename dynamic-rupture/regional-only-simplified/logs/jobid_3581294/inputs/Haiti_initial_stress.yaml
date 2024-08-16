@@ -1,0 +1,61 @@
+!EvalModel  # this indicates that we want to evaluate the parameters below before calculating the sxx, sxy, syy components
+parameters: [sig_zz, b_xx, b_yy, b_zz, b_xy, b_yz, b_xz]
+model: !Switch
+  [b_xx, b_yy, b_zz, b_xy, b_yz, b_xz]: !EvalModel
+    parameters: [sig_zz,S, SH_max]
+    model: !Switch  
+      [sig_zz]: !Include Haiti_sig_zz.yaml
+      [SH_max]: !Any 
+          components:
+            - !GroupFilter
+              groups: [65,66,67,68,69,70]  
+              components: !ConstantMap
+                map:
+                    SH_max:  60.0 # Update SH_max with the value that make sense for Haiti
+      [S]: !Any
+          components:
+            - !GroupFilter
+              groups: [65, 66] # Change the fault tags here !
+              components: !LuaMap
+                returns: [S]
+                function: |
+                 function f (x)
+                  R = 0.5
+                  return {
+                    S = (1.0/R-1.0)
+                  }
+                  end
+            - !GroupFilter
+              groups: [67,68,69,70] # Change the fault tags here !
+              components: !LuaMap
+                returns: [S]
+                function: |
+                 function f (x)
+                  R = 0.5
+                  return {
+                    S = (1.0/R-1.0)
+                  }
+                  end                 
+    components: !AndersonianStress
+      constants:
+        mu_d:      0.2
+        mu_s:      0.6
+        cohesion:  0.0
+        s2ratio: 0.0  # Pure transpressional, s2ratio = (s2-s3)/(s1-s3) where s1 > s2 > se are the pricipal stresses
+        S_v: 2  # Strike-slip faulting, vertical principal stress is the intermediate compressive stress
+  [sig_zz]: !Include Haiti_sig_zz.yaml 
+
+components: !LuaMap
+  returns: [s_xx, s_yy, s_zz, s_xy, s_yz, s_xz]
+  function: |
+     function f (x)
+      return {
+        s_xx = (x["b_xx"]) + x["sig_zz"],
+        s_yy = (x["b_yy"]) + x["sig_zz"],
+        s_zz = (x["b_zz"]) + x["sig_zz"],
+        s_xy = (x["b_xy"]),
+        s_yz = (x["b_yz"]),
+        s_xz = (x["b_xz"])
+      }
+      end
+

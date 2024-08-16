@@ -15,5 +15,5 @@ mkdir -p logs/jobid_${1}/inputs
 cp -r *.yaml logs/jobid_${1}/inputs/ 
 cp -r ${2} logs/jobid_${1}/inputs/ 
 cp run-supermuc-slurm.sh logs/jobid_${1}/inputs/ 
-mv *${1}*.err *${1}*.out logs/jobid_${1}/
+# mv *${1}*.err *${1}*.out logs/jobid_${1}/
 

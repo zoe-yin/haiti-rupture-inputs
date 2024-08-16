@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Job Name and Files (also --job-name)
-#SBATCH -J FL33-regional_v01
+#SBATCH -J FL33-only
 
 #Output and error (also --output, --error):
 #SBATCH -o ./%j.%x.out
@@ -48,22 +48,25 @@ export ASYNC_MODE=THREAD
 export ASYNC_BUFFER_ALIGNMENT=8388608
 source /etc/profile.d/modules.sh
 
-echo 'num_nodes:' $SLURM_JOB_NUM_NODES 'ntasks:' $SLURM_NTASKS 'cpus_per_task:' $SLURM_CPUS_PER_TASK >& job.log
+echo 'num_nodes:' $SLURM_JOB_NUM_NODES 'ntasks:' $SLURM_NTASKS 'cpus_per_task:' $SLURM_CPUS_PER_TASK
 ulimit -Ss 2097152
 
-# Change parameter file to set output to job nubmer
-# OUTPUTFILE="/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/jobid_${SLURM_JOB_ID}"
-# sed "s|OUTPUTFILE|${OUTPUTFILE}/output|" parameters-template.par > parameters_${SLURM_JOB_ID}.par
+PARAMETERS='parameters.par'
+
+# Define the OUTPUTDIR path
+OUTPUTDIR="/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/regional-only/jobid_${SLURM_JOB_ID}"
+# OutputFile='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/outputs_tmp/output' 
+
+# Use sed to replace the specific line (line 63) in parameters.par that sets outputdir
+sed -i "63s|.*|OutputFile='${OUTPUTDIR}/output'|" "$PARAMETERS"
+echo "Line 63 replaced with: OutputFile='${OUTPUTDIR}'"
 
 # Run SeisSol
 SEISSOL=/dss/dsshome1/01/di35poq/SeisSol/build-release/SeisSol_Release_dskx_4_elastic
-PARAMETERS=parameters.par
 srun $SEISSOL $PARAMETERS
 
-OUTDIR='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs'
-
 # Move to the outputs dir for postprocessing
-pushd ${OUTDIR}/outputs_tmp
+pushd $OUTPUTDIR
 
 # # Extract timesteps for relevant variables
 seissol_output_extractor output-fault.xdmf --time "i1:" --variable ASl Sls Sld Ts0 Td0 Pn0 T_s T_d P_n Mud  --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
@@ -71,14 +74,11 @@ seissol_output_extractor output-surface.xdmf --time "i1:" --variable u1 u2 u3 --
 
 popd
 
-# move outputs to a job-id-named folder
-mv ${OUTDIR}/outputs_tmp ${OUTDIR}/FL33-only/jobid_${SLURM_JOB_ID}
-
 # generate a log directory and copy inputs to it
 ../generate-job-log.sh $SLURM_JOB_ID $PARAMETERS
 
 # Copy log & input files to the outputs directory
-cp -r logs/jobid_${SLURM_JOB_ID} ${OUTDIR}/FL33-only/jobid_${SLURM_JOB_ID}/logs
+cp -r logs/jobid_${SLURM_JOB_ID} ${OUTPUTDIR}/logs
 
 # Create moment rate plot and R-value xdmf
 calc-moment-rate_R_supermuc.py ${SLURM_JOB_ID}
