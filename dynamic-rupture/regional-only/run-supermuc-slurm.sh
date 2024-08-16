@@ -75,10 +75,19 @@ pushd $OUTPUTDIR
 seissol_output_extractor output-fault.xdmf --time "i1:" --variable ASl Sls Sld Ts0 Td0 Pn0 T_s T_d P_n Mud  --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
 seissol_output_extractor output-surface.xdmf --time "i1:" --variable u1 u2 u3 --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
 
+# Create moment rate plot and R-value xdmf
+calc-moment-rate_R_supermuc.py ${SLURM_JOB_ID}
+
+# Get the profile of values crossing the nucelation patch
+/dss/dsshome1/01/di35poq/ParaView-5.12.0-MPI-Linux-Python3.10-x86_64/bin/pvpython /dss/dsshome1/01/di35poq/soft/profil-single-trace.py output-fault.xdmf
+# Make a stress/strength vs. depth plot
+python /dss/dsshome1/01/di35poq/soft/plot_initial_stress_profile.py /values-over-line.csv
+
 popd
 
+# Copy error and output files 
+# *${1}*.err *${1}*.out logs/jobid_${1}/
 # Copy log & input files to the outputs directory
 cp -r logs/jobid_${SLURM_JOB_ID} ${OUTPUTDIR}/logs
 
-# Create moment rate plot and R-value xdmf
-calc-moment-rate_R_supermuc.py ${SLURM_JOB_ID}
+
