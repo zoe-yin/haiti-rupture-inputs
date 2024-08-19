@@ -63,13 +63,10 @@ echo "Line 63 replaced with: OutputFile='${OUTPUTDIR}'"
 
 # generate a log directory and copy inputs to it
 ../generate-job-log.sh $SLURM_JOB_ID $PARAMETERS
-echo "Job log complete."
 
 # Run SeisSol
-echo "Starting SeisSol..."
 SEISSOL=/dss/dsshome1/01/di35poq/SeisSol/build-release/SeisSol_Release_dskx_4_elastic
 srun $SEISSOL $PARAMETERS
-echo "SeisSol complete."
 
 # Copy log & input files to the outputs directory
 cp -r logs/jobid_${SLURM_JOB_ID} ${OUTPUTDIR}/logs
@@ -91,11 +88,10 @@ python /dss/dsshome1/01/di35poq/soft/plot_initial_stress_profile.py values-over-
 
 popd
 
-
 # Copy error and output files to the logs/jobid_** directory
-cp *.err *.out ${OUTPUTDIR}/logs/
-# Move error and output files to the logs dir
 mv *.err *.out logs/jobid_${SLURM_JOB_ID}/
+# Copy error and output files to output directory
+cp *.err *.out ${OUTPUTDIR}/logs/
 
 
 

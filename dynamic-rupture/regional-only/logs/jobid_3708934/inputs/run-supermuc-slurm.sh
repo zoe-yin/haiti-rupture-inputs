@@ -63,16 +63,10 @@ echo "Line 63 replaced with: OutputFile='${OUTPUTDIR}'"
 
 # generate a log directory and copy inputs to it
 ../generate-job-log.sh $SLURM_JOB_ID $PARAMETERS
-echo "Job log complete."
 
 # Run SeisSol
-echo "Starting SeisSol..."
 SEISSOL=/dss/dsshome1/01/di35poq/SeisSol/build-release/SeisSol_Release_dskx_4_elastic
 srun $SEISSOL $PARAMETERS
-echo "SeisSol complete."
-
-# Copy log & input files to the outputs directory
-cp -r logs/jobid_${SLURM_JOB_ID} ${OUTPUTDIR}/logs
 
 # Move to the outputs dir for postprocessing
 pushd $OUTPUTDIR
@@ -85,17 +79,18 @@ seissol_output_extractor output-surface.xdmf --time "i1:" --variable u1 u2 u3 --
 calc-moment-rate_R_supermuc.py ${SLURM_JOB_ID}
 
 # Get the profile of values crossing the nucelation patch
-/dss/dsshome1/01/di35poq/ParaView-5.12.0-MPI-Linux-Python3.10-x86_64/bin/pvpython /dss/dsshome1/01/di35poq/soft/profil-single-trace.py output_jobid_${SLURM_JOB_ID}_extracted-fault.xdmf
+/dss/dsshome1/01/di35poq/ParaView-5.12.0-MPI-Linux-Python3.10-x86_64/bin/pvpython /dss/dsshome1/01/di35poq/soft/profil-single-trace.py output-fault.xdmf
 # Make a stress/strength vs. depth plot
-python /dss/dsshome1/01/di35poq/soft/plot_initial_stress_profile.py values-over-line.csv
+python /dss/dsshome1/01/di35poq/soft/plot_initial_stress_profile.py /values-over-line.csv
 
 popd
 
-
 # Copy error and output files to the logs/jobid_** directory
-cp *.err *.out ${OUTPUTDIR}/logs/
-# Move error and output files to the logs dir
-mv *.err *.out logs/jobid_${SLURM_JOB_ID}/
+cp *.err *.out logs/jobid_${SLURM_JOB_ID}/
 
+# # Copy error and output files to output directory
+# cp *.err *.out ${OUTPUTDIR}/logs/
 
+# Copy log & input files to the outputs directory
+cp -r logs/jobid_${SLURM_JOB_ID} ${OUTPUTDIR}/logs
 
