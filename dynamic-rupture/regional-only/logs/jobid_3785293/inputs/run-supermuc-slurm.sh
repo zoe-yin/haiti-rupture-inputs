@@ -84,8 +84,7 @@ seissol_output_extractor output-fault.xdmf --time "i1:" --variable ASl Sls Sld T
 seissol_output_extractor output-surface.xdmf --time "i1:" --variable u1 u2 u3 --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
 
 # Create moment rate plot and R-value xdmf
-calc-moment-rate_supermuc.py ${SLURM_JOB_ID}
-calc-R-rake_supermuc.py ${SLURM_JOB_ID}
+calc-moment-rate_R_supermuc.py ${SLURM_JOB_ID}
 
 # Get the profile of values crossing the nucelation patch
 /dss/dsshome1/01/di35poq/ParaView-5.12.0-MPI-Linux-Python3.10-x86_64/bin/pvpython /dss/dsshome1/01/di35poq/soft/profil-single-trace.py output_jobid_${SLURM_JOB_ID}_extracted-fault.xdmf

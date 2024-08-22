@@ -31,7 +31,7 @@ model: !Switch
               groups: [65,66,67,68,69,70]  
               components: !ConstantMap
                 map:
-                    SH_max:  57.0 # Update SH_max with the value that make sense for Haiti
+                    SH_max:  55.0 # Update SH_max with the value that make sense for Haiti
       [S]: !Any
           components:
             - !GroupFilter
@@ -40,7 +40,7 @@ model: !Switch
                 returns: [S]
                 function: |
                  function f (x)
-                  R = 0.04
+                  R = 0.08
                   return {
                     S = (1.0/R-1.0)
                   }
@@ -51,17 +51,17 @@ model: !Switch
                 returns: [S]
                 function: |
                  function f (x)
-                  R = 0.04
+                  R = 0.08
                   return {
                     S = (1.0/R-1.0)
                   }
                   end                 
     components: !AndersonianStress
       constants:
-        mu_d:      0.52
+        mu_d:      0.5
         mu_s:      0.6
         cohesion:  0.0
-        s2ratio: -0.1  # pure strike-slip faulting (no transtentinal or transpressional regime)
+        s2ratio: 0.0  # pure strike-slip faulting (no transtentinal or transpressional regime)
         S_v: 2  # Strike-slip faulting
   [sig_zz]: !Include Haiti_sig_zz.yaml
   [bc_xx, bc_yy, bc_zz,bc_xy, bc_yz, bc_xz]: !Include Haiti_stress_change.yaml  
