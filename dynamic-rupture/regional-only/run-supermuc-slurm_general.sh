@@ -20,7 +20,7 @@
 #SBATCH --no-requeue
 
 #Number of nodes and MPI tasks per node:
-#SBATCH --partition=general --exclude="i01r01c[01-02]s[01-12]"
+#SBATCH --partition=general
 #SBATCH --nodes=24
 #SBATCH --time=02:30:00
 
@@ -80,11 +80,12 @@ cp -r logs/jobid_${SLURM_JOB_ID} ${OUTPUTDIR}/logs
 pushd $OUTPUTDIR
 
 # # Extract timesteps for relevant variables
-seissol_output_extractor output-fault.xdmf --time "i1:" --variable ASl Sls Sld Ts0 Td0 Pn0 T_s T_d P_n Mud Vr  --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
+# seissol_output_extractor output-fault.xdmf --time "i1:" --variable ASl Sls Sld Ts0 Td0 Pn0 T_s T_d P_n Mud Vr  --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
 seissol_output_extractor output-surface.xdmf --time "i1:" --variable u1 u2 u3 --add2prefix "_jobid_${SLURM_JOB_ID}_extracted"
 
 # Create moment rate plot and R-value xdmf
-calc-moment-rate_R_supermuc.py ${SLURM_JOB_ID}
+calc-moment-rate_supermuc.py ${SLURM_JOB_ID}
+calc-R-rake_supermuc.py ${SLURM_JOB_ID}
 
 # Get the profile of values crossing the nucelation patch
 /dss/dsshome1/01/di35poq/ParaView-5.12.0-MPI-Linux-Python3.10-x86_64/bin/pvpython /dss/dsshome1/01/di35poq/soft/profil-single-trace.py output_jobid_${SLURM_JOB_ID}_extracted-fault.xdmf
