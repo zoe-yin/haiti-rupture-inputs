@@ -100,5 +100,3 @@ cp *.err *.out ${OUTPUTDIR}/logs/
 # Move error and output files to the logs dir
 mv *.err *.out logs/jobid_${SLURM_JOB_ID}/
 
-
-
