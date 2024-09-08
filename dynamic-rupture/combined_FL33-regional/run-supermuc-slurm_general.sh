@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Job Name and Files (also --job-name)
-#SBATCH -J regional-only
+#SBATCH -J combined_FL33-regional
 
 #Output and error (also --output, --error):
 #SBATCH -o ./%j.%x.out
@@ -56,7 +56,7 @@ ulimit -Ss 2097152
 PARAMETERS='parameters.par'
 
 # Define the OUTPUTDIR path
-OUTPUTDIR="/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/regional-only/jobid_${SLURM_JOB_ID}"
+OUTPUTDIR="/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/combined_FL33-regional/jobid_${SLURM_JOB_ID}"
 # OutputFile='/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/outputs_tmp/output' 
 
 # Use sed to replace the specific line (line 63) in parameters.par that sets outputdir
@@ -99,6 +99,5 @@ popd
 cp *.err *.out ${OUTPUTDIR}/logs/
 # Move error and output files to the logs dir
 mv *.err *.out logs/jobid_${SLURM_JOB_ID}/
-
 
 

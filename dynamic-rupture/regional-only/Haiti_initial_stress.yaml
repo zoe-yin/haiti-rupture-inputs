@@ -31,22 +31,11 @@ model: !Switch
               groups: [65,66,67,68,69,70]  
               components: !ConstantMap
                 map:
-                    SH_max:  40.0 # Update SH_max with the value that make sense for Haiti
+                    SH_max: 40.0  # Update SH_max with the value that makes sense for Haiti
       [S]: !Any
           components:
             - !GroupFilter
-              groups: [65] # 65 is RSF, 66 is Thrust
-              components: !LuaMap
-                returns: [S]
-                function: |
-                 function f (x)
-                  R = 1.0
-                  return {
-                    S = (1.0/R-1.0)
-                  }
-                  end
-            - !GroupFilter
-              groups: [66] # Change the fault tags here !
+              groups: [65, 66]  # Change the fault tags here !
               components: !LuaMap
                 returns: [S]
                 function: |
@@ -57,7 +46,7 @@ model: !Switch
                   }
                   end
             - !GroupFilter
-              groups: [67,68,69,70] # Change the fault tags here !
+              groups: [67,68,69,70]  # Change the fault tags here !
               components: !LuaMap
                 returns: [S]
                 function: |
@@ -69,11 +58,11 @@ model: !Switch
                   end                 
     components: !AndersonianStress
       constants:
-        mu_d:      0.33
-        mu_s:      0.5
+        mu_d: 0.31
+        mu_s: 0.5
         cohesion:  0.0
-        s2ratio: 0.2  # pure strike-slip faulting (no transtentinal or transpressional regime)
-        S_v: 3        # Andersonian stress regime (2 = strike slip, 3 = thrust)
+        s2ratio: 0.3  # pure strike-slip faulting (no transtensional or transpressional regime)
+        S_v: 3  # Andersonian stress regime (2 = strike slip, 3 = thrust)
   [sig_zz]: !Include Haiti_sig_zz.yaml
   [bc_xx, bc_yy, bc_zz,bc_xy, bc_yz, bc_xz]: !Include Haiti_stress_change.yaml  
 components: !LuaMap
@@ -89,4 +78,3 @@ components: !LuaMap
         s_xz = x["Omega"] * (x["b_xz"] - x["bc_xz"])
       }
       end
-

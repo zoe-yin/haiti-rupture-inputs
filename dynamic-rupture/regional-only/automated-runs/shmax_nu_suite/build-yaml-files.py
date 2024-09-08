@@ -404,8 +404,8 @@ EndTime_value=1.0
 # generate_all_input_files(writedir,alpha_value, mu_s_value, mu_d_value, d_c_value, r_crita_value, SH_max_value, s2ratio_value,Pf_value, asagi_file, EndTime_value)
 
 # Example of creating multiple YAML files with different parameter values
-s2ratio_values = [0.0, 0.1, 0.2, 0.3]  # Range of Omega values
-SH_max_values = [40.0, 50.0, 60.0]  # Range of SH_max values
+s2ratio_values = [0.3, 0.4, 0.5, 0.6, 0.7]  # Range of Omega values
+SH_max_values = [30.0, 40.0, 50.0, 60.0]  # Range of SH_max values
 
 for s2ratio_value in s2ratio_values:
     for SH_max_value in SH_max_values:
