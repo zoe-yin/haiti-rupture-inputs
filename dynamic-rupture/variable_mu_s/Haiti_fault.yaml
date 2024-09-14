@@ -1,0 +1,69 @@
+!Switch
+[mu_d, Tnuc_n, Tnuc_s, Tnuc_d]: !ConstantMap
+  map:
+    mu_d: 0.16
+    Tnuc_n: 0
+    Tnuc_s: 0
+    Tnuc_d: 0
+
+[mu_s]: !Any
+  components:
+    - !GroupFilter
+      groups: [65]  # 65 is RSF  
+      components: !ConstantMap
+        map:
+            mu_s: 0.3  # Update SH_max with the value that makes sense for Haiti
+    - !GroupFilter
+      groups: [67,68,69,70]  # 65 is RSF  
+      components: !ConstantMap
+        map:
+            mu_s: 0.52  # Update SH_max with the value that makes sense for Haiti
+    - !LuaMap
+        returns: [mu_s]
+        function: |
+          function f(x)
+              -- Get the value of x from the input x
+              local x_val = x["x"]
+
+              -- Breakpoints where value of mu_s changes
+              local aX = {0, 627000, 628376, 663949, 667222, 712852}
+              local aData = {1.0, 1.0, 0.52, 0.52, 1.0, 1.0}
+
+              -- Initialize mu_s to a default value (e.g., the first aData value)
+              local mu_s = aData[1]
+
+              -- Interpolate mu_s values between breakpoints
+              for i = 2, #aX do
+                  if x_val < aX[i] then
+                      mu_s = aData[i-1] + (x_val - aX[i-1]) / (aX[i] - aX[i-1]) * (aData[i] - aData[i-1])
+                      break
+                  end
+              end
+
+              -- Return mu_s in the correct format
+              return {
+                  mu_s = mu_s
+              }
+          end
+
+[d_c]: !Any
+  components:
+    - !ConstantMap
+        map:
+          d_c: 0.06
+[forced_rupture_time]: !Include Haiti_forced_rupture_time.yaml
+[cohesion]: !LuaMap  # Check and update for your case
+  returns: [cohesion]
+  function: |
+   function f (x)
+    z = x["z"]
+    cohesion = -0.5e6
+    zIncreasingCohesion = 6000.0
+    if (z >= -zIncreasingCohesion) then
+      cohesion = cohesion - 3.0e6 * (z+zIncreasingCohesion)/zIncreasingCohesion;
+    end
+    return {
+      cohesion = cohesion
+    }
+    end
+[s_xx, s_yy, s_zz, s_xy, s_yz, s_xz]: !Include Haiti_initial_stress.yaml

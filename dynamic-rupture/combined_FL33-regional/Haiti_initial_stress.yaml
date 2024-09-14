@@ -40,7 +40,7 @@ model: !Switch
                 returns: [S]
                 function: |
                  function f (x)
-                  R = 1.0
+                  R = 0.6
                   return {
                     S = (1.0/R-1.0)
                   }
@@ -51,7 +51,7 @@ model: !Switch
                 returns: [S]
                 function: |
                  function f (x)
-                  R = 0.8
+                  R = 0.6
                   return {
                     S = (1.0/R-1.0)
                   }
@@ -62,17 +62,17 @@ model: !Switch
                 returns: [S]
                 function: |
                  function f (x)
-                  R = 0.8
+                  R = 0.6
                   return {
                     S = (1.0/R-1.0)
                   }
                   end                 
     components: !AndersonianStress
       constants:
-        mu_d: 0.24
-        mu_s: 0.5
+        mu_d: 0.17
+        mu_s: 0.55
         cohesion:  0.0
-        s2ratio: 0.5  # pure strike-slip faulting (no transtensional or transpressional regime)
+        s2ratio: 0.7  # pure strike-slip faulting (no transtensional or transpressional regime)
         S_v: 3  # Andersonian stress regime (2 = strike slip, 3 = thrust)
   [sig_zz]: !Include Haiti_sig_zz.yaml
   [bc_xx, bc_yy, bc_zz,bc_xy, bc_yz, bc_xz]: !Include Haiti_stress_change.yaml  
