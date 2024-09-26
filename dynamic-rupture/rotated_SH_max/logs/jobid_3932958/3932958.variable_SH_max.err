@@ -1,0 +1,467 @@
+Error running function f [string "function f (x)..."]:11: attempt to compare nil with number
+Error running function f [string "function f (x)..."]:11: attempt to compare nil with number
+srun: error: i01r01c04s03: task 14: Aborted (core dumped)
+srun: launch/slurm: _step_signal: Terminating StepId=3932958.0
+srun: error: i01r01c03s05: task 4: Aborted (core dumped)
+slurmstepd: error: *** STEP 3932958.0 ON i01r01c03s01 CANCELLED AT 2024-09-25T23:47:44 ***
+srun: error: i01r01c04s01: task 12: Terminated
+srun: error: i01r01c03s03: task 2: Terminated
+srun: error: i01r01c03s12: task 11: Terminated
+srun: error: i01r01c03s07: task 6: Terminated
+srun: error: i01r01c04s02: task 13: Terminated
+srun: error: i01r01c03s01: task 0: Terminated
+srun: error: i01r01c03s09: task 8: Terminated
+srun: error: i01r01c03s10: task 9: Terminated
+srun: error: i01r01c03s11: task 10: Terminated
+srun: error: i01r01c04s04: task 15: Terminated
+srun: error: i01r01c03s06: task 5: Terminated
+srun: error: i01r01c03s08: task 7: Terminated
+srun: error: i01r01c03s02: task 1: Terminated
+srun: error: i01r01c03s04: task 3: Terminated
+srun: Force Terminated StepId=3932958.0
+cp: cannot create directory '/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/variable_SH_max/jobid_3932958/logs': No such file or directory
+/var/spool/slurm/job3932958/slurm_script: line 80: pushd: /hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/variable_SH_max/jobid_3932958: No such file or directory
+Traceback (most recent call last):
+  File "/dss/dsshome1/01/di35poq/.local/bin/seissol_output_extractor", line 8, in <module>
+    sys.exit(main())
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/seissolxdmfwriter/seissol_output_extractor.py", line 143, in main
+    sx = SeissolxdmfExtended(args.xdmfFilename)
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/seissolxdmf/seissolxdmf.py", line 14, in __init__
+    with open (xdmfFilename, "r") as fid:
+FileNotFoundError: [Errno 2] No such file or directory: 'output-surface.xdmf'
+Traceback (most recent call last):
+  File "/dss/dsshome1/01/di35poq/soft/calc-moment-rate_supermuc.py", line 30, in find_xdmffile_wahweap
+    xdmfFile = glob.glob(datadir + '*/jobid_'+jobid+'*/*extracted-fault.xdmf')[0]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dss/dsshome1/01/di35poq/soft/calc-moment-rate_supermuc.py", line 211, in <module>
+    generateMoment(jobid_list)
+  File "/dss/dsshome1/01/di35poq/soft/calc-moment-rate_supermuc.py", line 87, in generateMoment
+    xdmfFilename, momentCsvFile = find_xdmffile_wahweap(jobid)
+  File "/dss/dsshome1/01/di35poq/soft/calc-moment-rate_supermuc.py", line 34, in find_xdmffile_wahweap
+    xdmfFile = glob.glob(datadir + '*/jobid_'+jobid+'*/output-fault.xdmf')[0]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/dss/dsshome1/01/di35poq/soft/calc-R-rake_supermuc.py", line 83, in <module>
+    jobdir, xdmfFile, momentCsvFile = find_xdmffile_wahweap(jobid)
+  File "/dss/dsshome1/01/di35poq/soft/calc-R-rake_supermuc.py", line 32, in find_xdmffile_wahweap
+    xdmfFile = glob.glob(datadir + '*/jobid_'+jobid+'*/output-fault.xdmf')[0]
+IndexError: list index out of range
+[0m[31m(   1.654s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.654s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x33bc900)
+  Debug: Off
+  Modified Time: 92784
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.655s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.656s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33b0ca0): Algorithm vtkXdmfReader (0x33ae040) returned failure for request: vtkInformation (0x33afb50)
+  Debug: Off
+  Modified Time: 92671
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.656s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.656s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33b0ca0): Algorithm vtkXdmfReader (0x33ae040) returned failure for request: vtkInformation (0x33afb50)
+  Debug: Off
+  Modified Time: 92671
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.656s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.656s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x33bc900)
+  Debug: Off
+  Modified Time: 92784
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.656s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.656s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33b0ca0): Algorithm vtkXdmfReader (0x33ae040) returned failure for request: vtkInformation (0x33afb50)
+  Debug: Off
+  Modified Time: 92671
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.656s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.656s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33b0ca0): Algorithm vtkXdmfReader (0x33ae040) returned failure for request: vtkInformation (0x33afb50)
+  Debug: Off
+  Modified Time: 92671
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.658s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.658s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x33bc900)
+  Debug: Off
+  Modified Time: 92784
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.658s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.658s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33b0ca0): Algorithm vtkXdmfReader (0x33ae040) returned failure for request: vtkInformation (0x33afb50)
+  Debug: Off
+  Modified Time: 92671
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.658s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.658s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33b0ca0): Algorithm vtkXdmfReader (0x33ae040) returned failure for request: vtkInformation (0x33afb50)
+  Debug: Off
+  Modified Time: 92671
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.754s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.754s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x4ccc8a0)
+  Debug: Off
+  Modified Time: 154810
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.755s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.755s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x4ccc8a0)
+  Debug: Off
+  Modified Time: 154810
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[33m(   1.898s) [paraview        ]vtkSMColorMapEditorHelp:772   WARN| Failed to determine the LookupTable being used.[0m
+[0m[31m(   1.899s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.899s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x584b070)
+  Debug: Off
+  Modified Time: 878737
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.899s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkCompositeDataPipeline (0x57b0390): Algorithm vtkPVGeometryFilter (0x59167d0) returned failure for request: vtkInformation (0x57b1580)
+  Debug: Off
+  Modified Time: 878741
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.899s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.899s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x576e8d0)
+  Debug: Off
+  Modified Time: 878805
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.899s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkCompositeDataPipeline (0x578bb50): Algorithm vtkPVGeometryFilter (0x575c4c0) returned failure for request: vtkInformation (0x578cc20)
+  Debug: Off
+  Modified Time: 878810
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.899s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.899s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x51e1720)
+  Debug: Off
+  Modified Time: 878868
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.908s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkCompositeDataPipeline (0x57b0390): Algorithm vtkPVGeometryFilter (0x59167d0) returned failure for request: vtkInformation (0x57b1580)
+  Debug: Off
+  Modified Time: 878741
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.908s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkCompositeDataPipeline (0x578bb50): Algorithm vtkPVGeometryFilter (0x575c4c0) returned failure for request: vtkInformation (0x578cc20)
+  Debug: Off
+  Modified Time: 878810
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[33m(   1.908s) [paraview        ]vtkSMColorMapEditorHelp:772   WARN| Failed to determine the LookupTable being used.[0m
+[0m[31m(   1.908s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkCompositeDataPipeline (0x57b0390): Algorithm vtkPVGeometryFilter (0x59167d0) returned failure for request: vtkInformation (0x57b1580)
+  Debug: Off
+  Modified Time: 878741
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.908s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkCompositeDataPipeline (0x578bb50): Algorithm vtkPVGeometryFilter (0x575c4c0) returned failure for request: vtkInformation (0x578cc20)
+  Debug: Off
+  Modified Time: 878810
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.914s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.914s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x60f8670)
+  Debug: Off
+  Modified Time: 882185
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.915s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.915s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x6122180)
+  Debug: Off
+  Modified Time: 882367
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   1.915s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   1.915s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x6122180)
+  Debug: Off
+  Modified Time: 882367
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.030s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.030s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x6122180)
+  Debug: Off
+  Modified Time: 882367
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.030s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.030s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x6122180)
+  Debug: Off
+  Modified Time: 882367
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[33m(   2.040s) [paraview        ]vtkSMColorMapEditorHelp:772   WARN| Failed to determine the LookupTable being used.[0m
+[0m[33m(   2.047s) [paraview        ]vtkSMColorMapEditorHelp:170   WARN| Could not determine array range.[0m
+[0m[33m(   2.047s) [paraview        ]vtkSMColorMapEditorHelp:170   WARN| Could not determine array range.[0m
+[0m[31m(   2.058s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.058s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x7012550)
+  Debug: Off
+  Modified Time: 1029687
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.059s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.059s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x7010890)
+  Debug: Off
+  Modified Time: 1029869
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.059s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.059s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x7010890)
+  Debug: Off
+  Modified Time: 1029869
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.171s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.171s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x7010890)
+  Debug: Off
+  Modified Time: 1029869
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.171s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.171s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x7010890)
+  Debug: Off
+  Modified Time: 1029869
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.182s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.182s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x7010890)
+  Debug: Off
+  Modified Time: 1029869
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.182s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.182s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x7010890)
+  Debug: Off
+  Modified Time: 1029869
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.185s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.185s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x7bb8500)
+  Debug: Off
+  Modified Time: 1171884
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+[0m[31m(   2.185s) [paraview        ]      vtkXdmfReader.cxx:253    ERR| vtkXdmfReader (0x33ae040): Error opening file output_jobid_3932958_extracted-fault.xdmf[0m
+[0m[31m(   2.185s) [paraview        ]       vtkExecutive.cxx:729    ERR| vtkPVCompositeDataPipeline (0x33bd310): Algorithm vtkFileSeriesReader (0x33bad80) returned failure for request: vtkInformation (0x7bb8500)
+  Debug: Off
+  Modified Time: 1171884
+  Reference Count: 1
+  Registered Events: (none)
+  Request: REQUEST_DATA_OBJECT
+  FROM_OUTPUT_PORT: 0
+  ALGORITHM_AFTER_FORWARD: 1
+  FORWARD_DIRECTION: 0
+
+[0m
+Traceback (most recent call last):
+  File "/dss/dsshome1/01/di35poq/soft/plot_initial_stress_profile.py", line 58, in <module>
+    data = pd.read_csv(csvfile)
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1679, in _make_engine
+    return mapping[engine](f, **self.options)
+  File "/dss/dsshome1/01/di35poq/.local/lib/python3.8/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 93, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 557, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+/var/spool/slurm/job3932958/slurm_script: line 95: popd: directory stack empty
+cp: target '/hppfs/scratch/01/di35poq/haiti-rupture-outputs/dynamic-rupture-outputs/variable_SH_max/jobid_3932958/logs/' is not a directory
