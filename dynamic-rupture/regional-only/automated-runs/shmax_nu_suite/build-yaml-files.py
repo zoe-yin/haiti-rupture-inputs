@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 import yaml
 import os
 import shutil
@@ -86,7 +88,7 @@ model: !Switch
         mu_s: {mu_s_value}
         cohesion:  0.0
         s2ratio: {s2ratio_value}  # pure strike-slip faulting (no transtensional or transpressional regime)
-        S_v: 3  # Andersonian stress regime (2 = strike slip, 3 = thrust)
+        S_v: 2  # Andersonian stress regime (2 = strike slip, 3 = thrust)
   [sig_zz]: !Include Haiti_sig_zz.yaml
   [bc_xx, bc_yy, bc_zz,bc_xy, bc_yz, bc_xz]: !Include Haiti_stress_change.yaml  
 components: !LuaMap
@@ -366,7 +368,6 @@ p
         file.write(par_content)
     print(f"Parameter file created: {filename}")
 
-
 def copy_slurm_file(writedir): 
   if os.path.exists('run-supermuc-slurm.sh'):
     os.remove('run-supermuc-slurm.sh')
@@ -404,8 +405,8 @@ EndTime_value=1.0
 # generate_all_input_files(writedir,alpha_value, mu_s_value, mu_d_value, d_c_value, r_crita_value, SH_max_value, s2ratio_value,Pf_value, asagi_file, EndTime_value)
 
 # Example of creating multiple YAML files with different parameter values
-s2ratio_values = [0.3, 0.4, 0.5, 0.6, 0.7]  # Range of Omega values
-SH_max_values = [30.0, 40.0, 50.0, 60.0]  # Range of SH_max values
+s2ratio_values = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]  # Range of Omega values
+SH_max_values = [30.0, 40.0, 50.0, 60.0, 70.0]  # Range of SH_max values
 
 for s2ratio_value in s2ratio_values:
     for SH_max_value in SH_max_values:

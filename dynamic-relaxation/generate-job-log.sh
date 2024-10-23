@@ -1,0 +1,1 @@
+/dss/dsshome1/01/di35poq/haiti-rupture-inputs/dynamic-rupture/generate-job-log.sh
